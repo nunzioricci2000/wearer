@@ -9,29 +9,57 @@ import SwiftUI
 
 struct MainView: View {
     var body: some View {
-        ZStack {
+        ZStack  {
             TopWeather()
-            BottomSheetView(isOpen: .constant(true), maxHeight: 480) {
+            BottomSheetView(isOpen: .constant(true), maxHeight: 520) {
                 //Rectangle().fill(Color.red)
                 //.edgesIgnoringSafeArea(.all)
                 VStack(alignment: .leading, spacing: 20) {
                     Text("Today's Suggestions")
                         .font(.system(size: 28, weight: .semibold, design: .rounded))
-                    HStack(spacing: 20) {
-                        RoundedRectangle(cornerRadius: 25)
-                            .fill(Color(.systemGray3))
-                            .frame(width: 170, height: 170)
-                        RoundedRectangle(cornerRadius: 25)
-                            .fill(Color(.systemGray3))
-                            .frame(width: 170, height: 170)
-                    }
-                    HStack(spacing: 20) {
-                        RoundedRectangle(cornerRadius: 25)
-                            .fill(Color(.systemGray3))
-                            .frame(width: 170, height: 170)
-                        RoundedRectangle(cornerRadius: 25)
-                            .fill(Color(.systemGray3))
-                            .frame(width: 170, height: 170)
+                        .padding(.horizontal)
+                    
+                    GeometryReader { geometry in
+                        VStack{
+                            HStack{
+                                Spacer()
+                                Image("sweater")
+                                    .resizable()
+                                    .frame(width: geometry.size.width*0.40)
+                                    .frame(height: geometry.size.width*0.40)
+                                    .scaledToFill()
+                                    .cornerRadius(22)
+                                Spacer()
+                                Image("t-shirt")
+                                    .resizable()
+                                    .frame(width: geometry.size.width*0.40)
+                                    .frame(height: geometry.size.width*0.40)
+                                    .scaledToFill()
+                                    .cornerRadius(22)
+                                Spacer()
+                            }
+                            .padding(.vertical)
+                            
+                            HStack {
+                                Spacer()
+                                Image("jeans")
+                                    .resizable()
+                                    .frame(width: geometry.size.width*0.40)
+                                    .frame(height: geometry.size.width*0.40)
+                                    .scaledToFill()
+                                    .cornerRadius(22)
+                                Spacer()
+                                Image("shoes")
+                                    .resizable()
+                                    .frame(width: geometry.size.width*0.40)
+                                    .frame(height: geometry.size.width*0.40)
+                                    .scaledToFill()
+                                    .cornerRadius(22)
+                                Spacer()
+                                
+                            }
+                            Spacer()
+                        }
                     }
                 }
             }
