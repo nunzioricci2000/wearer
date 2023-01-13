@@ -9,59 +9,33 @@ import SwiftUI
 
 struct MainView: View {
     var body: some View {
-        ZStack  {
+        VStack(alignment: .leading) {
             topWeather
-            BottomSheetView(isOpen: .constant(true), maxHeight: 520) { //520 - 680
-                VStack(alignment: .leading, spacing: 20) {
-                    Text("Today's Suggestions")
-                        .font(.system(size: 28, weight: .semibold, design: .rounded))
-                        .padding(.horizontal)
-                    
-                    GeometryReader { geometry in
-                        VStack{
-                            HStack{
-                                Spacer()
-                                Image("sweater")
-                                    .resizable()
-                                    .frame(width: geometry.size.width*0.40)
-                                    .frame(height: geometry.size.width*0.40)
-                                    .scaledToFill()
-                                    .cornerRadius(22)
-                                Spacer()
-                                Image("t-shirt")
-                                    .resizable()
-                                    .frame(width: geometry.size.width*0.40)
-                                    .frame(height: geometry.size.width*0.40)
-                                    .scaledToFill()
-                                    .cornerRadius(22)
-                                Spacer()
-                            }
-                            .padding(.vertical)
-                            
-                            HStack {
-                                Spacer()
-                                Image("jeans")
-                                    .resizable()
-                                    .frame(width: geometry.size.width*0.40)
-                                    .frame(height: geometry.size.width*0.40)
-                                    .scaledToFill()
-                                    .cornerRadius(22)
-                                Spacer()
-                                Image("shoes")
-                                    .resizable()
-                                    .frame(width: geometry.size.width*0.40)
-                                    .frame(height: geometry.size.width*0.40)
-                                    .scaledToFill()
-                                    .cornerRadius(22)
-                                Spacer()
-                                
-                            }
-                            Spacer()
-                        }
-                    }
+            Text("Today's Suggestions")
+                .font(.system(size: 28, weight: .semibold, design: .rounded))
+            
+            Grid(horizontalSpacing: 12, verticalSpacing: 12) {
+                GridRow {
+                    Image("sweater")
+                        .resizable()
+                        .scaledToFill()
+                        .cornerRadius(22)
+                    Image("t-shirt")
+                        .resizable()
+                        .scaledToFill()
+                        .cornerRadius(22)
                 }
-            }
-            .edgesIgnoringSafeArea(.bottom)
+                GridRow {
+                    Image("jeans")
+                        .resizable()
+                        .scaledToFill()
+                        .cornerRadius(22)
+                    Image("shoes")
+                        .resizable()
+                        .scaledToFill()
+                        .cornerRadius(22)
+                }
+            }.padding(.horizontal)
         }
     }
     
