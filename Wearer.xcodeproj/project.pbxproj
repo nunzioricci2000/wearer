@@ -10,6 +10,7 @@
 		9AF10464297012D1006E40D2 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF10463297012D1006E40D2 /* MainView.swift */; };
 		9AF1046629701454006E40D2 /* HWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF1046529701454006E40D2 /* HWeather.swift */; };
 		9AF1046829701AAC006E40D2 /* TopWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF1046729701AAC006E40D2 /* TopWeather.swift */; };
+		9AF1046A29702BB8006E40D2 /* BottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF1046929702BB8006E40D2 /* BottomSheetView.swift */; };
 		CD0103C1296FF746003CB3A1 /* WearerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0103C0296FF746003CB3A1 /* WearerApp.swift */; };
 		CD0103C3296FF746003CB3A1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0103C2296FF746003CB3A1 /* ContentView.swift */; };
 		CD0103C5296FF748003CB3A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD0103C4296FF748003CB3A1 /* Assets.xcassets */; };
@@ -23,6 +24,7 @@
 		9AF10463297012D1006E40D2 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		9AF1046529701454006E40D2 /* HWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HWeather.swift; sourceTree = "<group>"; };
 		9AF1046729701AAC006E40D2 /* TopWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopWeather.swift; sourceTree = "<group>"; };
+		9AF1046929702BB8006E40D2 /* BottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetView.swift; sourceTree = "<group>"; };
 		CD0103BD296FF746003CB3A1 /* Wearer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wearer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD0103C0296FF746003CB3A1 /* WearerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WearerApp.swift; sourceTree = "<group>"; };
 		CD0103C2296FF746003CB3A1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 			children = (
 				CD0103D529700E80003CB3A1 /* View.swift */,
 				9AF10463297012D1006E40D2 /* MainView.swift */,
+				9AF1046929702BB8006E40D2 /* BottomSheetView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -181,6 +184,7 @@
 			files = (
 				CD0103D829700E8D003CB3A1 /* Model.swift in Sources */,
 				9AF10464297012D1006E40D2 /* MainView.swift in Sources */,
+				9AF1046A29702BB8006E40D2 /* BottomSheetView.swift in Sources */,
 				9AF1046629701454006E40D2 /* HWeather.swift in Sources */,
 				CD0103D629700E80003CB3A1 /* View.swift in Sources */,
 				CD0103C3296FF746003CB3A1 /* ContentView.swift in Sources */,
