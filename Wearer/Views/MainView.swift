@@ -14,8 +14,18 @@ struct MainView: View {
     @State var maxHeight: CGFloat = 0
     @State var notchHeight: CGFloat = 0
     
+    var actualOffset: CGFloat {
+        (gestureStatus ? maxHeight : minHeight) + yGestureOffset
+    }
+    
     var actualHeight: CGFloat {
-        return (gestureStatus ? maxHeight : minHeight) + yGestureOffset
+        guard actualOffset > 0 else {
+            return 0
+        }
+        if actualOffset > maxHeight {
+            return maxHeight + (actualOffset - maxHeight) / 2
+        }
+        return actualOffset
     }
     
     var selectedGestureStatus: Bool {
@@ -104,7 +114,7 @@ struct MainView: View {
     
     var wardrobe: some View {
         ZStack {
-            Color.white.cornerRadius(20).ignoresSafeArea()
+            Color.white.cornerRadius(20, corners: [.topLeft, .topRight]).ignoresSafeArea()
             Color.clear.overlay(alignment: .top) {
                 VStack {
                     Color.secondary.cornerRadius(20).frame(width: 50, height: 5).padding(.top)
