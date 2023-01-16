@@ -8,46 +8,55 @@
 import SwiftUI
 
 struct MainView: View {
-    var body: some View {
-        VStack(alignment: .leading) {
-            topWeather
-            Text("Today's Suggestions")
-                .font(.system(size: 28, weight: .semibold, design: .rounded))
-                .padding(.horizontal)
-            
-            Grid(horizontalSpacing: 12, verticalSpacing: 12) {
-                GridRow {
-                    Image("sweater")
-                        .resizable()
-                        .scaledToFill()
-                        .cornerRadius(22)
-                    Image("t-shirt")
-                        .resizable()
-                        .scaledToFill()
-                        .cornerRadius(22)
-                }
-                GridRow {
-                    Image("jeans")
-                        .resizable()
-                        .scaledToFill()
-                        .cornerRadius(22)
-                    Image("shoes")
-                        .resizable()
-                        .scaledToFill()
-                        .cornerRadius(22)
-                }
-            }.padding(.horizontal)
-        }
+    @State var yGestureOffset: CGFloat = 0
+    @State var gestureStatus: Bool = true
+    @State var minHeight: CGFloat = 0
+    @State var maxHeight: CGFloat = 0
+    @State var notchHeight: CGFloat = 0
+    
+    var actualHeight: CGFloat {
+        return (gestureStatus ? maxHeight : minHeight) + yGestureOffset
     }
     
-    var topWeather: some View {
-        ZStack {
+    var selectedGestureStatus: Bool {
+        return actualHeight > (maxHeight + minHeight) / 2
+    }
+    
+    var body: some View {
+        ZStack(alignment: .top) {
+            weatherView
+            
+            VStack {
+                Color.clear.frame(width: 0, height: actualHeight)
+                wardrobe.frame(width: UIScreen.main.bounds.width)
+            }
+        }.compositingGroup()
+        .background {
             Rectangle()
                 .fill(Gradient(colors: [.blue .opacity(0.6), .blue]))
                 .ignoresSafeArea()
-
-            Grid (verticalSpacing: 10){
-                
+        }.gesture( DragGesture()
+            .onChanged { gesture in
+                withAnimation(.interactiveSpring()) {
+                    yGestureOffset = gesture.translation.height
+                }
+            }.onEnded { gesture in
+                withAnimation(.interactiveSpring()) {
+                    gestureStatus = selectedGestureStatus
+                    yGestureOffset = 0
+                }
+            }
+        )
+    }
+    
+    var weatherView: some View {
+        VStack {
+            GeometryReader { rect in
+                Color.clear.onAppear {
+                    notchHeight = rect.frame(in: .global).maxY
+                }
+            }.frame(width: 0, height: 0)
+            Grid (verticalSpacing: 10) {
                 GridRow{
                     VStack{
                         Text("Napoli")
@@ -66,6 +75,11 @@ struct MainView: View {
                         .font(.system(size: 32, weight: .light, design: .rounded))
                         .gridCellColumns(3)
                 }
+                GeometryReader { rect in
+                    Color.clear.onAppear {
+                        minHeight = rect.frame(in: .global).minY - notchHeight
+                    }
+                }.frame(width: 0, height: 0)
                 GridRow{
                     ForEach(1...6, id: \.self) { index in
                         hWeatherIcon
@@ -76,13 +90,65 @@ struct MainView: View {
                         .gridCellColumns(6)
                         .padding(.vertical,10)
                 }
-                
+                GeometryReader {rect in
+                    Color.clear.onAppear {
+                        maxHeight = rect.frame(in: .global).minY - notchHeight
+                    }
+                }.frame(width: 0, height: 0)
             }
             .foregroundColor(.white)
             .fontDesign(.rounded)
             .shadow(color: .black .opacity(0.5), radius: 3, y: 4)
-            .padding(.bottom,50)
         }
+    }
+    
+    var wardrobe: some View {
+        ZStack {
+            Color.white.cornerRadius(20).ignoresSafeArea()
+            Color.clear.overlay(alignment: .top) {
+                VStack {
+                    Color.secondary.cornerRadius(20).frame(width: 50, height: 5).padding(.top)
+                    Title("Today's suggestions")
+                    Grid(horizontalSpacing: 12, verticalSpacing: 12) {
+                        GridRow {
+                            Image("sweater")
+                                .resizable()
+                                .scaledToFill()
+                                .cornerRadius(22)
+                            Image("t-shirt")
+                                .resizable()
+                                .scaledToFill()
+                                .cornerRadius(22)
+                        }
+                        GridRow {
+                            Image("jeans")
+                                .resizable()
+                                .scaledToFill()
+                                .cornerRadius(22)
+                            Image("shoes")
+                                .resizable()
+                                .scaledToFill()
+                                .cornerRadius(22)
+                        }
+                    }
+                    .padding(.horizontal, 40)
+                    Color.clear.overlay(alignment: .top) {
+                        VStack {
+                            Title("My guardrobe")
+                                .foregroundColor(.white)
+                                .padding(.bottom, 7)
+                            Spacer()
+                        }.background {
+                            ZStack {
+                                Image("guardrobe")
+                                Color.black.opacity(0.5)
+                            }
+                        }.cornerRadius(20)
+                            .padding()
+                    }
+                }
+            }.blendMode(.sourceAtop)
+        }.compositingGroup()
     }
     
     var hWeather: some View {
@@ -108,7 +174,7 @@ struct MainView: View {
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
         MainView()
-        MainView().topWeather.previewDisplayName("topWeather")
+        MainView().weatherView.previewDisplayName("weatherView")
         MainView().hWeather.previewDisplayName("hWeather")
         MainView().hWeatherIcon.previewDisplayName("hWeatherIcon")
     }
