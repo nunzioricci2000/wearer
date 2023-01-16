@@ -13,6 +13,7 @@ struct MainView: View {
             topWeather
             Text("Today's Suggestions")
                 .font(.system(size: 28, weight: .semibold, design: .rounded))
+                .padding(.horizontal)
             
             Grid(horizontalSpacing: 12, verticalSpacing: 12) {
                 GridRow {
@@ -44,41 +45,49 @@ struct MainView: View {
             Rectangle()
                 .fill(Gradient(colors: [.blue .opacity(0.6), .blue]))
                 .ignoresSafeArea()
-            GeometryReader{ geometry in
-                VStack {
-                    HStack {
-                        VStack {
-                            Text("Napoli")
-                            Text("15°C")
-                        }
-                        .font(.system(size: 32, weight: .semibold, design: .rounded))
-                        Spacer()
-                        Image(systemName: "cloud.sun")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: geometry.size.width*0.40)
-                            .font(.system(size: 32, weight: .light, design: .rounded))
+
+            Grid (verticalSpacing: 10){
+                
+                GridRow{
+                    VStack{
+                        Text("Napoli")
+                        Text("15°C")
                     }
-                    .padding(.horizontal, 25)
-                    hWeather
-                    Text("Seems like it could rain today, don't forget your umbrella \(Image(systemName: "umbrella"))")
-                        .frame(width: geometry.size.width*0.9)
-                        .padding(.top)
-                    Spacer()
+                    .gridCellColumns(2)
+                    .font(.system(size: 32, weight: .semibold, design: .rounded))
+                    
+                    Color.clear.gridCellUnsizedAxes([.horizontal, .vertical])
+                        .gridCellColumns(1)
+                    
+                    Image(systemName: "cloud.sun")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 100, height: 100)
+                        .font(.system(size: 32, weight: .light, design: .rounded))
+                        .gridCellColumns(3)
                 }
-                .foregroundColor(.white)
-                .fontDesign(.rounded)
-                .shadow(color: .black .opacity(0.5), radius: 3, y: 4)
+                GridRow{
+                    ForEach(1...6, id: \.self) { index in
+                        hWeatherIcon
+                    }
+                }
+                GridRow{
+                    Text("Seems like it could rain today, don't forget your umbrella \(Image(systemName: "umbrella"))")
+                        .gridCellColumns(6)
+                        .padding(.vertical,10)
+                }
                 
             }
+            .foregroundColor(.white)
+            .fontDesign(.rounded)
+            .shadow(color: .black .opacity(0.5), radius: 3, y: 4)
+            .padding(.bottom,50)
         }
     }
     
     var hWeather: some View {
         HStack {
-            ForEach(1...6, id: \.self) { index in
-                hWeatherIcon
-            }
+            
         }
     }
     
@@ -93,7 +102,7 @@ struct MainView: View {
         .padding(.horizontal, 8)
     }
     
-
+    
 }
 
 struct MainView_Previews: PreviewProvider {
