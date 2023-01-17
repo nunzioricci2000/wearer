@@ -13,8 +13,10 @@
 		CD0103C5296FF748003CB3A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD0103C4296FF748003CB3A1 /* Assets.xcassets */; };
 		CD0103C8296FF748003CB3A1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD0103C7296FF748003CB3A1 /* Preview Assets.xcassets */; };
 		CD0103D429700E75003CB3A1 /* CornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0103D329700E75003CB3A1 /* CornerRadius.swift */; };
-		CD0103D629700E80003CB3A1 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0103D529700E80003CB3A1 /* View.swift */; };
-		CD0103D829700E8D003CB3A1 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0103D729700E8D003CB3A1 /* Model.swift */; };
+		CD38C0322975F602005A4769 /* ShortForecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD38C0312975F602005A4769 /* ShortForecast.swift */; };
+		CD38C0342975F63D005A4769 /* WeatherInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD38C0332975F63D005A4769 /* WeatherInfo.swift */; };
+		CD38C0362975F966005A4769 /* OpenMeteo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD38C0352975F966005A4769 /* OpenMeteo.swift */; };
+		CD38C0392976A11E005A4769 /* Semimodal.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD38C0382976A11E005A4769 /* Semimodal.swift */; };
 		CD3AFD2D29758E0D0097EF3B /* Title.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3AFD2C29758E0D0097EF3B /* Title.swift */; };
 /* End PBXBuildFile section */
 
@@ -26,8 +28,10 @@
 		CD0103C4296FF748003CB3A1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CD0103C7296FF748003CB3A1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CD0103D329700E75003CB3A1 /* CornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerRadius.swift; sourceTree = "<group>"; };
-		CD0103D529700E80003CB3A1 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
-		CD0103D729700E8D003CB3A1 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		CD38C0312975F602005A4769 /* ShortForecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortForecast.swift; sourceTree = "<group>"; };
+		CD38C0332975F63D005A4769 /* WeatherInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherInfo.swift; sourceTree = "<group>"; };
+		CD38C0352975F966005A4769 /* OpenMeteo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenMeteo.swift; sourceTree = "<group>"; };
+		CD38C0382976A11E005A4769 /* Semimodal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Semimodal.swift; sourceTree = "<group>"; };
 		CD3AFD2C29758E0D0097EF3B /* Title.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Title.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -83,7 +87,8 @@
 		CD0103CE29700DB2003CB3A1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				CD0103D729700E8D003CB3A1 /* Model.swift */,
+				CD38C0332975F63D005A4769 /* WeatherInfo.swift */,
+				CD38C0352975F966005A4769 /* OpenMeteo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -91,7 +96,6 @@
 		CD0103D129700DCA003CB3A1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				CD0103D529700E80003CB3A1 /* View.swift */,
 				9AF10463297012D1006E40D2 /* MainView.swift */,
 			);
 			path = Views;
@@ -102,6 +106,8 @@
 			children = (
 				CD0103D329700E75003CB3A1 /* CornerRadius.swift */,
 				CD3AFD2C29758E0D0097EF3B /* Title.swift */,
+				CD38C0312975F602005A4769 /* ShortForecast.swift */,
+				CD38C0382976A11E005A4769 /* Semimodal.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -116,6 +122,7 @@
 				CD0103B9296FF746003CB3A1 /* Sources */,
 				CD0103BA296FF746003CB3A1 /* Frameworks */,
 				CD0103BB296FF746003CB3A1 /* Resources */,
+				CD38C03729768E07005A4769 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -171,18 +178,41 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		CD38C03729768E07005A4769 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		CD0103B9296FF746003CB3A1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				CD3AFD2D29758E0D0097EF3B /* Title.swift in Sources */,
-				CD0103D829700E8D003CB3A1 /* Model.swift in Sources */,
+				CD38C0362975F966005A4769 /* OpenMeteo.swift in Sources */,
 				9AF10464297012D1006E40D2 /* MainView.swift in Sources */,
-				CD0103D629700E80003CB3A1 /* View.swift in Sources */,
+				CD38C0392976A11E005A4769 /* Semimodal.swift in Sources */,
 				CD0103C3296FF746003CB3A1 /* ContentView.swift in Sources */,
+				CD38C0322975F602005A4769 /* ShortForecast.swift in Sources */,
 				CD0103D429700E75003CB3A1 /* CornerRadius.swift in Sources */,
 				CD0103C1296FF746003CB3A1 /* WearerApp.swift in Sources */,
+				CD38C0342975F63D005A4769 /* WeatherInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

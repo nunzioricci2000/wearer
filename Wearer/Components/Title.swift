@@ -9,11 +9,9 @@ import SwiftUI
 
 struct Title: View {
     @State var text: String
-    
     init(_ text: String) {
         self.text = text
     }
-    
     var body: some View {
         HStack {
             Text(text)
