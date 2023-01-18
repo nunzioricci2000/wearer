@@ -11,7 +11,7 @@ struct WardrobeView: View {
     let cloth = Cloth(name: "Sabaku", type: ClothType.jacket, picture: "")
     let jeans = Cloth(name: "Jeans Figo", type: ClothType.jeans, picture: "")
     let shoes = Cloth(name: "Scarpe Fighe", type: ClothType.shoes, picture: "")
-    let shirt = Cloth(name: "Scarpe Fighe", type: ClothType.shirt, picture: "")
+    let shirt = Cloth(name: "Magliette Fighe", type: ClothType.shirt, picture: "")
     var body: some View {
         ScrollView(showsIndicators: false) {
             HClothViewer(cloth: cloth)

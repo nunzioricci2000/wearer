@@ -64,7 +64,7 @@ struct HClothViewer: View {
             }
         }
         .sheet(isPresented: $isPresented) {
-            ClothesList()
+            GridClothViewer()
         }
     }
 }
