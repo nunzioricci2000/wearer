@@ -12,8 +12,9 @@ struct Weather {
     let temperature: String
     let description: String
     let iconName: String
-    // MARK: 
+    let response: OMResponse
     init(response: OMResponse) {
+        self.response = response
         city = ""
         temperature = "\(Int(response.currentWeather.temperature))"
         let foreground = OMForeground.from(code: response.currentWeather.weatherCode)
@@ -21,8 +22,4 @@ struct Weather {
         description = "\(foreground.weatherDescription)"
 
     }
-    
-    
-    
-    
 }
