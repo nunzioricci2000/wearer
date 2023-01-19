@@ -36,22 +36,22 @@ struct OMCurrentWeather: Decodable {
 
 struct OMResponse: Decodable {
     var currentWeather: OMCurrentWeather
-    var hourly: OMHourly
+    //var hourly: OMHourly
     
     
     enum CodingKeys: String, CodingKey {
         case currentWeather = "current_weather"
-        case hourly
+        //case hourly
     }
 }
 
-var foregrounds: [OMForeground] {
+/*var foregrounds: [OMForeground] {
     var foregrounds = [OMForeground]()
     for i in 0..<foregrounds.count {
         foregrounds.append(.init(time: hourly.time[i], temperature: hourly.temperature_2m[i]))
     }
     return foregrounds
-}
+}*/
 
 /*struct Position: Decodable {
     var latitude: Double
