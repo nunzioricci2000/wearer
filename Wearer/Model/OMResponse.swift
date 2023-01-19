@@ -12,10 +12,12 @@ import Foundation
 struct OMHourly: Decodable {
     var time: [String]
     var temperature: [Double]
+    var weatherCode: [Int]
     
     enum CodingKeys: String, CodingKey {
         case time
         case temperature = "temperature_2m"
+        case weatherCode = "weathercode"
     }
 }
 
@@ -46,7 +48,7 @@ struct OMForeground: Decodable {
         case 95, 96, 99: foreground = .init(weatherDescription: "Thunderstorm",
                                             weatherIcon: "tempesta")
         default:
-            fatalError("Codice non trovato")
+            fatalError("Codice non trovato!")
         }
         return foreground
     }
