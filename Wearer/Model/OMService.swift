@@ -15,7 +15,7 @@ public final class OMService: NSObject, ObservableObject {
     private var completionHandler: ((Weather?, LocationAuthError?) -> Void)?
     private var dataTask: URLSessionDataTask?
     private let locationManager = CLLocationManager()
-    
+    private var locationName: String = ""
     public override init() {
         super.init()
         locationManager.delegate = self
@@ -36,14 +36,16 @@ public final class OMService: NSObject, ObservableObject {
         else { return }
         guard let url = URL(string: urlString)
         else { return }
-        
+
         dataTask?.cancel()
         
         dataTask = URLSession.shared.dataTask(with: url) { data, response, error in
             guard error == nil, let data = data else { return }
             
             if let response = try? JSONDecoder().decode(OMResponse.self, from: data) {
-                self.completionHandler?(Weather(response: response), nil)
+                var weather = Weather(response: response)
+                weather.city = self.locationName
+                self.completionHandler?(weather, nil)
             }
         }
         
@@ -69,7 +71,12 @@ extension OMService: CLLocationManagerDelegate {
     didUpdateLocations locations: [CLLocation]
   ) {
     guard let location = locations.first else { return }
+      CLGeocoder().reverseGeocodeLocation(location) { placemarks, error in
+          self.locationName = placemarks?.first?.locality ?? ""
+          }
     makeDataRequest(forCoordinates: location.coordinate)
+      
+      
   }
 
   public func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {

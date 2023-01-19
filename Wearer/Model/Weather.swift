@@ -8,14 +8,14 @@
 import Foundation
 
 struct Weather {
-    let city: String
+    var city: String
     let temperature: String
     let description: String
     let iconName: String
     
     // MARK: 
     init(response: OMResponse) {
-        city = "Napoli"
+        city = ""
         temperature = "\(Int(response.currentWeather.temperature))"
         description = ""
         iconName = ""
