@@ -12,6 +12,12 @@ import Foundation
 struct OMHourly: Decodable {
     var time: [String]
     var temperature_2m: [Double]
+    var temperature: [Double]
+    
+    enum CodingKeys: String, CodingKey {
+        case time
+        case temperature = "temperature_2m"
+    }
 }
 
 /*struct OMHourlyUnits: Decodable {
@@ -70,11 +76,13 @@ struct OMCurrentWeather: Decodable {
 struct OMResponse: Decodable {
     var currentWeather: OMCurrentWeather
     //var hourly: OMHourly
+    var hourly: OMHourly
     
     
     enum CodingKeys: String, CodingKey {
         case currentWeather = "current_weather"
         //case hourly
+        case hourly
     }
 }
 
