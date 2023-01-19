@@ -34,7 +34,7 @@ class OMViewModel: ObservableObject {
                 self.cityName = weather.city
                 self.temperature = "\(weather.temperature)ºC"
                 self.weatherDescription = weather.description.capitalized
-                self.weatherIcon = "icon" //iconMap[weather.iconName] ?? default icon
+                self.weatherIcon = weather.iconName //iconMap[weather.iconName] ?? default icon
             }
         }
     }
