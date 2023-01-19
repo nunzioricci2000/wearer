@@ -31,7 +31,7 @@ public final class OMService: NSObject, ObservableObject {
     func makeDataRequest(forCoordinates coordinates: CLLocationCoordinate2D) {
         //guard let urlString = "https://api.open-meteo.com/v1/forecast?latitude=\(coordinates.latitude)&longitude=\(coordinates.longitude)&hourly=temperature_2m"
             //.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
-        guard let urlString = "https://api.open-meteo.com/v1/forecast?latitude=\(coordinates.latitude)&longitude=\(coordinates.longitude)&current_weather=true"
+        guard let urlString = "https://api.open-meteo.com/v1/forecast?latitude=\(coordinates.latitude)&longitude=\(coordinates.longitude)&current_weather=true&hourly=temperature_2m,weathercode"
             .addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         else { return }
         guard let url = URL(string: urlString)
