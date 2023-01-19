@@ -55,9 +55,11 @@ struct OMForeground: Decodable {
         return foreground
     }
 }
+
 struct OMCurrentWeather: Decodable {
     var temperature: Double
     var weatherCode: Double
+    var weatherCode: Int
     
     enum CodingKeys: String, CodingKey {
         case temperature
