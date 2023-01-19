@@ -58,7 +58,7 @@ struct MainView: View {
                     .font(.system(size: 32, weight: .semibold, design: .rounded))
                     Color.clear.gridCellUnsizedAxes([.horizontal, .vertical])
                         .gridCellColumns(1)
-                    Image(systemName: "cloud.sun")
+                    Image(viewModel.weatherIcon)
                         .resizable()
                         .scaledToFit()
                         .frame(width: 100, height: 100)
@@ -76,7 +76,8 @@ struct MainView: View {
                     }
                 }
                 GridRow {
-                    Text("Seems like it could rain today, don't forget your umbrella \(Image(systemName: "umbrella"))")
+                    Text(viewModel.weatherDescription)
+                    //Text("Seems like it could rain today, don't forget your umbrella \(Image(systemName: "umbrella"))")
                         .gridCellColumns(6)
                         .padding(.vertical, 10)
                 }
@@ -104,7 +105,7 @@ struct MainView: View {
     }
     var wardrobe: some View {
         ZStack {
-            Color.white
+            Color(.systemBackground)
                 .cornerRadius(20, corners: [.topLeft, .topRight]).ignoresSafeArea()
             .overlay(alignment: .top) {
                 VStack {
