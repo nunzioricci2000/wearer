@@ -71,13 +71,12 @@ struct MainView: View {
                     }
                 }.frame(width: 0, height: 0)
                 GridRow {
-                    ForEach(1...6, id: \.self) { _ in
-                        weatherIcon
+                    ForEach(1...6, id: \.self) { index in
+                        weatherIcon(index)
                     }
                 }
                 GridRow {
                     Text(viewModel.weatherDescription)
-                    //Text("Seems like it could rain today, don't forget your umbrella \(Image(systemName: "umbrella"))")
                         .gridCellColumns(6)
                         .padding(.vertical, 10)
                 }
@@ -152,12 +151,31 @@ struct MainView: View {
             }
         }.compositingGroup()
     }
-    var weatherIcon: some View {
-        VStack {
-            Text("0-4") // hour
-            Image(systemName: "moon") // SF Symbol icon
-                .font(.system(size: 32, weight: .bold, design: .rounded))
-            Text("4°C")
+    func weatherIcon(_ index: Int) -> some View {
+        let temp = viewModel.omService.response?.hourly.temperature[index*4]
+        var tempStr: String?
+        if let temp = temp {
+            tempStr = "\(temp)°C"
+        }
+        let hour = viewModel.omService.response?.hourly.time[index*4]
+        var hourStr: String?
+        if let hour = hour {
+            let startIndex = hour.index(hour.startIndex, offsetBy: 11)
+            let endIndex = hour.index(startIndex, offsetBy: 1)
+            hourStr = String(hour[startIndex...endIndex])
+        }
+        let code = viewModel.omService.response?.hourly.weatherCode[index*4]
+        var weatherIconName: String?
+        if let code = code {
+            weatherIconName = OMForeground.from(code: code).weatherIcon
+        }
+        return VStack {
+            Text(hourStr ?? "--") // hour
+            Image(weatherIconName ?? "") // SF Symbol icon
+                .resizable()
+                .scaledToFit()
+                .frame(width: 26)
+            Text(tempStr ?? "--")
         }
         .font(.system(size: 12, weight: .regular, design: .rounded))
         .padding(.horizontal, 8)
@@ -194,7 +212,5 @@ struct MainView_Previews: PreviewProvider {
             .previewDisplayName("Main")
         MainView(viewModel: OMViewModel(omService: OMService())).weatherView
             .previewDisplayName("Weather")
-        MainView(viewModel: OMViewModel(omService: OMService())).weatherIcon
-            .previewDisplayName("Weather icon")
     }
 }
