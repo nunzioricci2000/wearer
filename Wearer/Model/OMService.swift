@@ -8,7 +8,7 @@
 // swiftlint:disable all
 
 import Foundation
-import CoreLocation // For coordinates
+import CoreLocation
 
 public final class OMService: NSObject, ObservableObject {
 
@@ -16,6 +16,7 @@ public final class OMService: NSObject, ObservableObject {
     private var dataTask: URLSessionDataTask?
     private let locationManager = CLLocationManager()
     private var locationName: String = ""
+    var response: OMResponse?
     public override init() {
         super.init()
         locationManager.delegate = self
@@ -26,11 +27,7 @@ public final class OMService: NSObject, ObservableObject {
         loadDataOrRequestLocationAuth()
     }
     
-    // Current Weather API: https://api.open-meteo.com/v1/forecast?latitude=40.85&longitude=14.26&current_weather=true
-    
     func makeDataRequest(forCoordinates coordinates: CLLocationCoordinate2D) {
-        //guard let urlString = "https://api.open-meteo.com/v1/forecast?latitude=\(coordinates.latitude)&longitude=\(coordinates.longitude)&hourly=temperature_2m"
-            //.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         guard let urlString = "https://api.open-meteo.com/v1/forecast?latitude=\(coordinates.latitude)&longitude=\(coordinates.longitude)&current_weather=true&hourly=temperature_2m,weathercode"
             .addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         else { return }
@@ -43,12 +40,12 @@ public final class OMService: NSObject, ObservableObject {
             guard error == nil, let data = data else { return }
             
             if let response = try? JSONDecoder().decode(OMResponse.self, from: data) {
+                self.response = response
                 var weather = Weather(response: response)
                 weather.city = self.locationName
                 self.completionHandler?(weather, nil)
             }
         }
-        
         dataTask?.resume()
     }
     
