@@ -13,6 +13,8 @@ struct MainView: View {
     @State var minHeight: CGFloat = 0
     @State var maxHeight: CGFloat = 0
     @State var notchHeight: CGFloat = 0
+    @ObservedObject var viewModel: OMViewModel
+
     var actualOffset: CGFloat {
         (gestureStatus ? maxHeight : minHeight) + yGestureOffset
     }
@@ -43,14 +45,14 @@ struct MainView: View {
         VStack {
             GeometryReader { rect in
                 Color.clear.onAppear {
-                    notchHeight = rect.frame(in: .global).maxY
+                    notchHeight = rect.frame(in: .global).midY
                 }
             }.frame(width: 0, height: 0)
             Grid(verticalSpacing: 10) {
                 GridRow {
                     VStack {
                         Text("Napoli")
-                        Text("15°C")
+                        Text(viewModel.temperature)
                     }
                     .gridCellColumns(2)
                     .font(.system(size: 32, weight: .semibold, design: .rounded))
@@ -88,6 +90,17 @@ struct MainView: View {
             .fontDesign(.rounded)
             .shadow(color: .black .opacity(0.5), radius: 3, y: 4)
         }
+        .alert(isPresented: $viewModel.shouldShowLocationError) {
+          Alert(
+            title: Text("Error"),
+            message: Text("To see the weather, provide location access in Settings."),
+            dismissButton: .default(Text("Open Settings")) {
+              guard let settingsURL = URL(string: UIApplication.openSettingsURLString) else { return }
+              UIApplication.shared.open(settingsURL)
+            }
+          )
+        }
+        .onAppear(perform: viewModel.refresh)
     }
     var wardrobe: some View {
         ZStack {
@@ -176,11 +189,11 @@ struct MainView: View {
 
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
-        MainView()
+        MainView(viewModel: OMViewModel(omService: OMService()))
             .previewDisplayName("Main")
-        MainView().weatherView
+        MainView(viewModel: OMViewModel(omService: OMService())).weatherView
             .previewDisplayName("Weather")
-        MainView().weatherIcon
+        MainView(viewModel: OMViewModel(omService: OMService())).weatherIcon
             .previewDisplayName("Weather icon")
     }
 }
