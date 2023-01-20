@@ -174,7 +174,7 @@ struct MainView: View {
             Image(weatherIconName ?? "") // SF Symbol icon
                 .resizable()
                 .scaledToFit()
-                .frame(width: 26)
+                .frame(width: 26, height: 26)
             Text(tempStr ?? "--")
         }
         .font(.system(size: 12, weight: .regular, design: .rounded))
