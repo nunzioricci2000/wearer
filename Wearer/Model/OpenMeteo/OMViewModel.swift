@@ -8,7 +8,7 @@
 import Foundation
 
 class OMViewModel: ObservableObject {
-    @Published var cityName: String = "Napoli"
+    @Published var cityName: String = "--"
     @Published var temperature: String = "--"
     @Published var weatherDescription: String = "--"
     @Published var weatherIcon: String = ""

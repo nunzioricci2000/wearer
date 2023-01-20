@@ -9,18 +9,6 @@ import Foundation
 
 // swiftlint:disable all
 
-struct OMHourly: Decodable {
-    var time: [String]
-    var temperature: [Double]
-    var weatherCode: [Int]
-    
-    enum CodingKeys: String, CodingKey {
-        case time
-        case temperature = "temperature_2m"
-        case weatherCode = "weathercode"
-    }
-}
-
 // Converting the weather code in the relative description and weather icon
 struct OMForeground: Decodable {
     var weatherDescription: String
@@ -54,24 +42,35 @@ struct OMForeground: Decodable {
     }
 }
 
-struct OMCurrentWeather: Decodable {
-    var temperature: Double
-    var weatherCode: Int
-    
-    enum CodingKeys: String, CodingKey {
-        case temperature
-        case weatherCode = "weathercode"
-    }
-}
-
 struct OMResponse: Decodable {
-    var currentWeather: OMCurrentWeather
-    var hourly: OMHourly
-    
+    var currentWeather: CurrentWeather
+    var hourly: Hourly
     
     enum CodingKeys: String, CodingKey {
         case currentWeather = "current_weather"
         case hourly
+    }
+    
+    struct Hourly: Decodable {
+        var time: [String]
+        var temperature: [Double]
+        var weatherCode: [Int]
+        
+        enum CodingKeys: String, CodingKey {
+            case time
+            case temperature = "temperature_2m"
+            case weatherCode = "weathercode"
+        }
+    }
+    
+    struct CurrentWeather: Decodable {
+        var temperature: Double
+        var weatherCode: Int
+        
+        enum CodingKeys: String, CodingKey {
+            case temperature
+            case weatherCode = "weathercode"
+        }
     }
 }
 

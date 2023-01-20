@@ -20,6 +20,7 @@
 		CD38C0362975F966005A4769 /* OMService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD38C0352975F966005A4769 /* OMService.swift */; };
 		CD38C0392976A11E005A4769 /* Semimodal.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD38C0382976A11E005A4769 /* Semimodal.swift */; };
 		CD3AFD2D29758E0D0097EF3B /* Title.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3AFD2C29758E0D0097EF3B /* Title.swift */; };
+		CD3B450C29799849007740B2 /* OpenMeteo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3B450B29799849007740B2 /* OpenMeteo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		CD38C0352975F966005A4769 /* OMService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OMService.swift; sourceTree = "<group>"; };
 		CD38C0382976A11E005A4769 /* Semimodal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Semimodal.swift; sourceTree = "<group>"; };
 		CD3AFD2C29758E0D0097EF3B /* Title.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Title.swift; sourceTree = "<group>"; };
+		CD3B450B29799849007740B2 /* OpenMeteo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenMeteo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,9 +93,7 @@
 		CD0103CE29700DB2003CB3A1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				CD38C0332975F63D005A4769 /* OMResponse.swift */,
-				CD38C0352975F966005A4769 /* OMService.swift */,
-				9AD1F1722978006900063C22 /* OMViewModel.swift */,
+				CD3B450A2979982A007740B2 /* OpenMeteo */,
 				9AD1F1742978094700063C22 /* Weather.swift */,
 			);
 			path = Model;
@@ -116,6 +116,17 @@
 				CD38C0382976A11E005A4769 /* Semimodal.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		CD3B450A2979982A007740B2 /* OpenMeteo */ = {
+			isa = PBXGroup;
+			children = (
+				CD38C0332975F63D005A4769 /* OMResponse.swift */,
+				CD38C0352975F966005A4769 /* OMService.swift */,
+				9AD1F1722978006900063C22 /* OMViewModel.swift */,
+				CD3B450B29799849007740B2 /* OpenMeteo.swift */,
+			);
+			path = OpenMeteo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -216,6 +227,7 @@
 				9AD1F1752978094700063C22 /* Weather.swift in Sources */,
 				CD38C0392976A11E005A4769 /* Semimodal.swift in Sources */,
 				9AD1F1732978006900063C22 /* OMViewModel.swift in Sources */,
+				CD3B450C29799849007740B2 /* OpenMeteo.swift in Sources */,
 				CD0103C3296FF746003CB3A1 /* ContentView.swift in Sources */,
 				CD38C0322975F602005A4769 /* ShortForecast.swift in Sources */,
 				CD0103D429700E75003CB3A1 /* CornerRadius.swift in Sources */,
@@ -349,7 +361,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Wearer/Preview Content\"";
-				DEVELOPMENT_TEAM = A8HBA34LL5;
+				DEVELOPMENT_TEAM = 57Z9KVXBQ7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "The app need access to your current position to show weather forecast";
