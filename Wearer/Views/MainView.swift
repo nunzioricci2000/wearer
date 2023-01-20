@@ -51,7 +51,7 @@ struct MainView: View {
             Grid(verticalSpacing: 10) {
                 GridRow {
                     VStack {
-                        Text("Napoli")
+                        Text(viewModel.cityName)
                         Text(viewModel.temperature)
                     }
                     .gridCellColumns(2)
