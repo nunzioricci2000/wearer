@@ -18,11 +18,11 @@ class LocationHandler {
         }
         throw LocationError.nilLocation
     }
-    func getCoordinate() async throws -> CLLocationCoordinate2D {
-        try await getLocation().coordinate
-    }
     func getLocationName() async throws -> String {
-        let placemarks = try await geocoder.reverseGeocodeLocation(getLocation())
+        try await getLocationName(of: getLocation())
+    }
+    func getLocationName(of location: CLLocation) async throws -> String {
+        let placemarks = try await geocoder.reverseGeocodeLocation(location)
         guard let placemark = placemarks.first else {
             throw LocationError.nonExistentPlacemark
         }
