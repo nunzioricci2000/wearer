@@ -1,0 +1,40 @@
+//
+//  LocationHandler.swift
+//  Wearer
+//
+//  Created by Nunzio Ricci on 20/01/23.
+//
+
+import Foundation
+import CoreLocation
+
+class LocationHandler {
+    static var shared: LocationHandler = LocationHandler()
+    var manager = CLLocationManager()
+    var geocoder = CLGeocoder()
+    func getLocation() async throws -> CLLocation {
+        if let location = manager.location {
+            return location
+        }
+        throw LocationError.nilLocation
+    }
+    func getCoordinate() async throws -> CLLocationCoordinate2D {
+        try await getLocation().coordinate
+    }
+    func getLocationName() async throws -> String {
+        let placemarks = try await geocoder.reverseGeocodeLocation(getLocation())
+        guard let placemark = placemarks.first else {
+            throw LocationError.nonExistentPlacemark
+        }
+        guard let locationName = placemark.locality else {
+            throw LocationError.unnamedLocality
+        }
+        return locationName
+    }
+}
+
+enum LocationError: Error {
+    case nilLocation
+    case nonExistentPlacemark
+    case unnamedLocality
+}
