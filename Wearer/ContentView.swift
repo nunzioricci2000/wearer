@@ -9,8 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        let omService = OMService()
-        MainView(viewModel: OMViewModel(omService: omService))
+        MainView()
     }
 }
 
