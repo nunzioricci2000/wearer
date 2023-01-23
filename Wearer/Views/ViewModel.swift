@@ -15,20 +15,11 @@ class ViewModel: ObservableObject {
     @Published var currentWeatherDescription: String?
     @Published var foregrounds: [WeatherForegroud?] = .init(repeating: nil, count: 6)
     @Published var alert: ErrorAlert?
-    var showAlert: Bool {
-        get {
-            alert != nil
-        }
-        set {
-            if !newValue {
-                alert = nil
-            }
-        }
-    }
+    var showAlert: Bool = false
     func refresh() async {
         do {
             locationName = try await LocationHandler.shared.getLocationName()
-            let coordinate = try await LocationHandler.shared.getCoordinate()
+            let coordinate = try await LocationHandler.shared.getLocation().coordinate
             let request = OMRequest(latitude: coordinate.latitude,
                                     longitude: coordinate.longitude,
                                     hourly: [.temperature, .weatherCode],
@@ -39,12 +30,14 @@ class ViewModel: ObservableObject {
             currentWeather = .init(WeatherForegroud(temperature: "\(response.currentWeather.temperature)°C",
                                                     icon: currentWeatherForeround.weatherIcon))
             for index in foregrounds.indices {
-                let index = index
+                let index = (index+2) * 4
                 let time = response.hourly.time[index]
                 let temperature = response.hourly.temperature[index]
                 let weatherCode = response.hourly.weatherCode[index]
                 let foreground = OMForeground.from(code: weatherCode)
-                foregrounds[index] = .init(time: time,
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "HH"
+                foregrounds[index / 4 - 2] = .init(time: dateFormatter.string(from: time),
                                            temperature: "\(temperature)°C",
                                            icon: foreground.weatherIcon)
             }
@@ -55,6 +48,7 @@ class ViewModel: ObservableObject {
             default:
                 presentUnknownErrorAlert(error: error)
             }
+            showAlert = true
         }
     }
     func presentGPSAlert() {
@@ -63,9 +57,11 @@ class ViewModel: ObservableObject {
                       buttonText: "Open settings") {
             guard let settingsURL = URL(string: UIApplication.openSettingsURLString) else { return }
             UIApplication.shared.open(settingsURL)
+            self.showAlert = false
         }
     }
     func presentUnknownErrorAlert(error: Error?) {
+        print(error)
         alert = .init(title: "Unknown error",
                       description: error?.localizedDescription ?? "This error is really unknown!",
                       buttonText: error == nil ? "OH SHIT!" : "Close") {

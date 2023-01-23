@@ -132,7 +132,7 @@ struct MainView: View {
         Alert(
             title: Text(viewModel.alert!.title),
             message: Text(viewModel.alert!.description),
-            dismissButton: .default(Text(viewModel.alert!.buttonText))
+            dismissButton: .default(Text(viewModel.alert!.buttonText)) { viewModel.alert!.onDismiss() }
         )
     }
     func weatherIcon(_ foreground: WeatherForegroud) -> some View {
