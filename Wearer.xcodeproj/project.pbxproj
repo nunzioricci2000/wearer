@@ -21,6 +21,7 @@
 		CD3B450C29799849007740B2 /* OpenMeteo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3B450B29799849007740B2 /* OpenMeteo.swift */; };
 		CDA111FD297A9C08008B3253 /* OMRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA111FC297A9C08008B3253 /* OMRequest.swift */; };
 		CDA111FF297AE7A9008B3253 /* LocationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA111FE297AE7A9008B3253 /* LocationHandler.swift */; };
+		CDA11201297E8709008B3253 /* WardrobeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA11200297E8709008B3253 /* WardrobeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		CD3B450B29799849007740B2 /* OpenMeteo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenMeteo.swift; sourceTree = "<group>"; };
 		CDA111FC297A9C08008B3253 /* OMRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OMRequest.swift; sourceTree = "<group>"; };
 		CDA111FE297AE7A9008B3253 /* LocationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationHandler.swift; sourceTree = "<group>"; };
+		CDA11200297E8709008B3253 /* WardrobeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardrobeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 			children = (
 				9AF10463297012D1006E40D2 /* MainView.swift */,
 				9AD1F1722978006900063C22 /* ViewModel.swift */,
+				CDA11200297E8709008B3253 /* WardrobeView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -229,6 +232,7 @@
 				CD3B450C29799849007740B2 /* OpenMeteo.swift in Sources */,
 				CD0103C3296FF746003CB3A1 /* ContentView.swift in Sources */,
 				CD38C0322975F602005A4769 /* ShortForecast.swift in Sources */,
+				CDA11201297E8709008B3253 /* WardrobeView.swift in Sources */,
 				CD0103D429700E75003CB3A1 /* CornerRadius.swift in Sources */,
 				CD0103C1296FF746003CB3A1 /* WearerApp.swift in Sources */,
 				CDA111FD297A9C08008B3253 /* OMRequest.swift in Sources */,

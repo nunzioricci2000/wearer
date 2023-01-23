@@ -9,7 +9,16 @@ import SwiftUI
 
 struct MainView: View {
     @StateObject var viewModel: ViewModel = .init()
+    @Namespace var namespace
+    @State var showWardrobe = false
     var body: some View {
+        if showWardrobe {
+            wardrobeView
+        } else {
+            main
+        }
+    }
+    var main: some View {
         weatherView
             .semisheet(minHeight: 105,
                        maxHeight: 250) {
@@ -115,14 +124,19 @@ struct MainView: View {
     var wardrobeButton: some View {
         Color.clear.overlay(alignment: .top) {
             VStack {
-                Title("My guardrobe")
+                Title("My wardrobe")
+                    .matchedGeometryEffect(id: "wardrobe-title", in: namespace)
                     .foregroundColor(.white)
                     .padding(.bottom, 7)
                 Spacer()
             }.background {
                 ZStack {
-                    Image("guardrobe")
+                    Image("wardrobe")
                     Color.black.opacity(0.5)
+                }.onTapGesture {
+                    withAnimation {
+                        showWardrobe = true
+                    }
                 }
             }.cornerRadius(20)
                 .padding()
