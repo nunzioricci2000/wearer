@@ -365,7 +365,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Wearer/Preview Content\"";
-				DEVELOPMENT_TEAM = 57Z9KVXBQ7;
+				DEVELOPMENT_TEAM = SZ62HAV5P2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "The app need access to your current position to show weather forecast";
@@ -395,7 +395,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Wearer/Preview Content\"";
-				DEVELOPMENT_TEAM = A8HBA34LL5;
+				DEVELOPMENT_TEAM = SZ62HAV5P2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "The app need access to your current position to show weather forecast";

@@ -10,7 +10,7 @@ import SwiftUI
 struct Semimodal<Modal: View>: ViewModifier {
     var modal: () -> Modal
     @State var yGestureOffset: CGFloat = 0
-    @State var gestureStatus: Bool = true
+    @State var gestureStatus: Bool = false
     @State var minHeight: CGFloat = 0
     @State var maxHeight: CGFloat = 0
     var actualOffset: CGFloat {
