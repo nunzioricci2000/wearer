@@ -9,9 +9,8 @@ import SwiftUI
 
 struct ClothesList: View {
     @Environment(\.dismiss) var dismiss
-
     var body: some View {
-        let cloth = Cloth(name: "Sabaku", type: ClothType.jacket, picture: "")
+        let cloth = Cloth(name: "Jackette Fighe", type: ClothType.jacket, picture: "")
         let jeans = Cloth(name: "Jeans Figo", type: ClothType.jeans, picture: "")
         let shoes = Cloth(name: "Scarpe Fighe", type: ClothType.shoes, picture: "")
         let shirt = Cloth(name: "Scarpe Fighe", type: ClothType.shirt, picture: "")

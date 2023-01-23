@@ -14,11 +14,14 @@ struct WardrobeView: View {
     let shoes = Cloth(name: "Scarpe Fighe", type: ClothType.shoes, picture: "")
     let shirt = Cloth(name: "Magliette Fighe", type: ClothType.shirt, picture: "")
     var body: some View {
-        ScrollView(showsIndicators: false) {
-            HClothViewer(cloth: cloth)
-            HClothViewer(cloth: shirt)
-            HClothViewer(cloth: jeans)
-            HClothViewer(cloth: shoes)
+        NavigationView{
+            ScrollView(showsIndicators: false) {
+                HClothViewer(cloth: cloth)
+                HClothViewer(cloth: shirt)
+                HClothViewer(cloth: jeans)
+                HClothViewer(cloth: shoes)
+                    .navigationTitle("My Wardrobe")
+            }
         }
     }
 }

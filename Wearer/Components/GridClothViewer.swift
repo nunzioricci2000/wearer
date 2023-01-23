@@ -65,7 +65,7 @@ struct GridClothViewer: View {
                             .frame(width: 165, height: 165)
                             .clipShape(Rectangle())
                             .cornerRadius(30)
-                        Image("Jeans1")
+                        Image("NewCloth")
                             .resizable()
                             .aspectRatio(contentMode: .fill)
                             .frame(width: 165, height: 165)

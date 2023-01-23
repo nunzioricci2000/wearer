@@ -9,24 +9,27 @@ import SwiftUI
 
 struct HClothViewer: View {
     @State var isPresented: Bool = false
+    @State var isSelected: Bool = false
+    let generator = UIImpactFeedbackGenerator(style: .light)
     var cloth : Cloth
     var body: some View {
         VStack{
             Button {
                 isPresented = true
+                isSelected.toggle()
+                self.generator.impactOccurred()
             }
-            label: {
-                HStack {
-                    Text(cloth.type.rawValue)
-                        .fontWeight(.heavy)
-                        .font(.title)
-                    Image(systemName: "chevron.down")
-                        .padding()
-                    Spacer()
-                }
-                .padding(.leading, 20.0)
+        label: {
+            HStack {
+                Text(cloth.type.rawValue)
+                    .fontWeight(.heavy)
+                    .font(.title)
+                Image(systemName: "plus.circle.fill")
+                Spacer()
             }
-            .buttonStyle(PlainButtonStyle())
+            .padding(.leading, 20.0)
+        }
+        .buttonStyle(PlainButtonStyle())
             ScrollView(.horizontal, showsIndicators: false){
                 HStack{
                     Image("Jeans1")
