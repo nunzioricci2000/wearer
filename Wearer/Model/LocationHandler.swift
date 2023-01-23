@@ -10,7 +10,11 @@ import CoreLocation
 
 class LocationHandler {
     static var shared: LocationHandler = LocationHandler()
-    var manager = CLLocationManager()
+    var manager = {
+        let manager = CLLocationManager()
+        manager.requestWhenInUseAuthorization()
+        return manager
+    }()
     var geocoder = CLGeocoder()
     func getLocation() async throws -> CLLocation {
         if let location = manager.location {
