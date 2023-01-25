@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct GridClothViewer: View {
+    @State var isPresented: Bool = false
+    @State var isSelected: Bool = false
     var body: some View {
         VStack{
             Text ("Jackets")
@@ -23,7 +25,7 @@ struct GridClothViewer: View {
                             .frame(width: 165, height: 165)
                             .clipShape(Rectangle())
                             .cornerRadius(30)
-                        Image("Jeans1")
+                        Image("Jeans2")
                             .resizable()
                             .aspectRatio(contentMode: .fill)
                             .frame(width: 165, height: 165)
@@ -31,27 +33,13 @@ struct GridClothViewer: View {
                             .cornerRadius(30)
                     }
                     GridRow {
-                        Image("Jeans1")
+                        Image("Jeans3")
                             .resizable()
                             .aspectRatio(contentMode: .fill)
                             .frame(width: 165, height: 165)
                             .clipShape(Rectangle())
                             .cornerRadius(30)
-                        Image("Jeans1")
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .frame(width: 165, height: 165)
-                            .clipShape(Rectangle())
-                            .cornerRadius(30)
-                    }
-                    GridRow {
-                        Image("Jeans1")
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .frame(width: 165, height: 165)
-                            .clipShape(Rectangle())
-                            .cornerRadius(30)
-                        Image("Jeans1")
+                        Image("Jeans4")
                             .resizable()
                             .aspectRatio(contentMode: .fill)
                             .frame(width: 165, height: 165)
@@ -59,27 +47,49 @@ struct GridClothViewer: View {
                             .cornerRadius(30)
                     }
                     GridRow {
-                        Image("Jeans1")
+                        Image("Jeans5")
                             .resizable()
                             .aspectRatio(contentMode: .fill)
                             .frame(width: 165, height: 165)
                             .clipShape(Rectangle())
                             .cornerRadius(30)
-                        Image("NewCloth")
+                        Image("Hat1")
                             .resizable()
                             .aspectRatio(contentMode: .fill)
                             .frame(width: 165, height: 165)
                             .clipShape(Rectangle())
                             .cornerRadius(30)
                     }
-                    
+                    GridRow {
+                        Image("Sweater1")
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: 165, height: 165)
+                            .clipShape(Rectangle())
+                            .cornerRadius(30)
+                        Button {
+                            isPresented = true
+                            isSelected.toggle()
+                        }
+                    label: {
+                        HStack {
+                            Image("NewCloth")
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .frame(width: 165, height: 165)
+                                .clipShape(Rectangle())
+                            .cornerRadius(30)                        }
+                    }
+                    }
                 }
             }
         }
         .padding(.top, 8.0)
+        .sheet(isPresented: $isPresented) {
+            CreationClothView(name: "")
     }
+        }
 }
-
 struct GridClothViewer_Previews: PreviewProvider {
     static var previews: some View {
         GridClothViewer()
