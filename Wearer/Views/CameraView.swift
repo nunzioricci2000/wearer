@@ -35,7 +35,6 @@ struct CameraView: View {
                     self.sourceType = .camera
                     self.isImagePickerDisplay.toggle()
                 }.padding()
-                
                 Button("photo") {
                     self.sourceType = .photoLibrary
                     self.isImagePickerDisplay.toggle()
