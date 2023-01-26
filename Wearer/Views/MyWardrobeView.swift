@@ -26,7 +26,7 @@ struct WardrobeView: View {
     }
 }
 
-struct WardrobeView_Previews: PreviewProvider {
+struct MyWardrobeView_Previews: PreviewProvider {
     static var previews: some View {
         WardrobeView()
     }
