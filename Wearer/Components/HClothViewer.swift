@@ -9,9 +9,9 @@ import SwiftUI
 
 struct HClothViewer: View {
     let generator = UIImpactFeedbackGenerator(style: .light)
-    var cloth : Cloth
+    var cloth: Cloth
     var body: some View {
-        VStack{
+        VStack {
             NavigationLink {
                 GridClothViewer()
             } label: {
@@ -25,8 +25,8 @@ struct HClothViewer: View {
                 .padding(.leading, 20.0)
             }
             .buttonStyle(PlainButtonStyle())
-            ScrollView(.horizontal, showsIndicators: false){
-                HStack{
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack {
                     Image("Jeans1")
                         .resizable()
                         .aspectRatio(contentMode: .fill)

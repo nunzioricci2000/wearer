@@ -8,9 +8,9 @@
 import Foundation
 
 struct Cloth: Identifiable {
-    var name : String
-    let type : ClothType
-    var picture : String
+    var name: String
+    let type: ClothType
+    var picture: String
     var id = UUID()
 }
 

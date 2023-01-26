@@ -5,20 +5,16 @@
 //  Created by Alberto Mura on 25/01/23.
 //
 
-
 import SwiftUI
 
 struct CameraView: View {
-    
     @State private var sourceType: UIImagePickerController.SourceType = .camera
     @State private var selectedImage: UIImage?
     @State private var isImagePickerDisplay = false
     @State private var isCameraDisplay = false
-    
     var body: some View {
         NavigationView {
             VStack {
-                
                 if selectedImage != nil {
                     Image(uiImage: selectedImage!)
                         .resizable()
@@ -36,12 +32,20 @@ struct CameraView: View {
                     self.sourceType = .camera
                     self.isCameraDisplay.toggle()
                 }.padding()
-                    .fullScreenCover(isPresented: $isCameraDisplay, content: {ImagePickerView(selectedImage: self.$selectedImage, sourceType: self.sourceType)})
+                    .fullScreenCover(
+                        isPresented: $isCameraDisplay ) {
+                            ImagePickerView(
+                                selectedImage: self.$selectedImage,
+                                sourceType: self.sourceType)
+                        }
                 Button("photo") {
                     self.sourceType = .photoLibrary
                     self.isImagePickerDisplay.toggle()
                 }.padding()
-                    .sheet(isPresented: self.$isImagePickerDisplay, content: {ImagePickerView(selectedImage: self.$selectedImage, sourceType: self.sourceType)})
+                    .sheet(isPresented: self.$isImagePickerDisplay) {
+                        ImagePickerView(
+                            selectedImage: self.$selectedImage,
+                            sourceType: self.sourceType)}
             }
             .navigationBarTitle("Demo")
         }

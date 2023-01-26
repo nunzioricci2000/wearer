@@ -11,11 +11,11 @@ struct GridClothViewer: View {
     @State var isPresented: Bool = false
     @State var isSelected: Bool = false
     var body: some View {
-        VStack{
-            Text ("Jackets")
+        VStack {
+            Text("Jackets")
                 .bold()
                 .font(.title2)
-            ScrollView(.vertical){
+            ScrollView(.vertical) {
                 Grid {
                     GridRow {
                         Image("Jeans1")

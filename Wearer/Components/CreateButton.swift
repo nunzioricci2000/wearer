@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CreateButton: View {
     var body: some View {
-        Button{}
+        Button {}
     label: {
         Text("Create")
             .font(.title2)

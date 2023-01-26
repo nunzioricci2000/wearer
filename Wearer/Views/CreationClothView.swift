@@ -11,9 +11,9 @@ struct CreationClothView: View {
     @State var name: String
     @Environment(\.dismiss) var dismiss
     var body: some View {
-        NavigationStack{
-            VStack{
-                ZStack{
+        NavigationStack {
+            VStack {
+                ZStack {
                     Image("ClothPlaceholder")
                         .resizable()
                         .aspectRatio(contentMode: .fill)
