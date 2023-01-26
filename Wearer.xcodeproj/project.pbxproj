@@ -9,17 +9,6 @@
 /* Begin PBXBuildFile section */
 		9AD1F1732978006900063C22 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD1F1722978006900063C22 /* ViewModel.swift */; };
 		9AF10464297012D1006E40D2 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF10463297012D1006E40D2 /* MainView.swift */; };
-		85178DE0297FD7D4001C0373 /* CreateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85178DDF297FD7D4001C0373 /* CreateButton.swift */; };
-		852C1CA629715B5D001D323E /* HClothViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852C1CA529715B5D001D323E /* HClothViewer.swift */; };
-		852C1CAC29716AAE001D323E /* Cloth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852C1CAB29716AAE001D323E /* Cloth.swift */; };
-		852C1CAE2971722A001D323E /* MyWardrobeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852C1CAD2971722A001D323E /* MyWardrobeView.swift */; };
-		853602F829769CBB00AE31DA /* ClothesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853602F729769CBB00AE31DA /* ClothesList.swift */; };
-		853602FA29769D7B00AE31DA /* GridClothViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853602F929769D7B00AE31DA /* GridClothViewer.swift */; };
-		85632C5B297AA2AB00B7A6E0 /* ClothesDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 85632C59297AA2AB00B7A6E0 /* ClothesDataModel.xcdatamodeld */; };
-		85632C5D297AA56B00B7A6E0 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85632C5C297AA56B00B7A6E0 /* DataController.swift */; };
-		857E934C298146CD00195BC0 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857E934B298146CD00195BC0 /* Camera.swift */; };
-		857E935029814BBC00195BC0 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857E934F29814BBC00195BC0 /* CameraView.swift */; };
-		8588F5CE297EA3FD007EEF1A /* CreationClothView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8588F5CD297EA3FD007EEF1A /* CreationClothView.swift */; };
 		CD0103C1296FF746003CB3A1 /* WearerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0103C0296FF746003CB3A1 /* WearerApp.swift */; };
 		CD0103C3296FF746003CB3A1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0103C2296FF746003CB3A1 /* ContentView.swift */; };
 		CD0103C5296FF748003CB3A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD0103C4296FF748003CB3A1 /* Assets.xcassets */; };
@@ -38,20 +27,6 @@
 /* Begin PBXFileReference section */
 		9AD1F1722978006900063C22 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		9AF10463297012D1006E40D2 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-/* End PBXBuildFile section */
-
-/* Begin PBXFileReference section */
-		85178DDF297FD7D4001C0373 /* CreateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateButton.swift; sourceTree = "<group>"; };
-		852C1CA529715B5D001D323E /* HClothViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HClothViewer.swift; sourceTree = "<group>"; };
-		852C1CAB29716AAE001D323E /* Cloth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cloth.swift; sourceTree = "<group>"; };
-		852C1CAD2971722A001D323E /* MyWardrobeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyWardrobeView.swift; sourceTree = "<group>"; };
-		853602F729769CBB00AE31DA /* ClothesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClothesList.swift; path = ../Components/ClothesList.swift; sourceTree = "<group>"; };
-		853602F929769D7B00AE31DA /* GridClothViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridClothViewer.swift; sourceTree = "<group>"; };
-		85632C5A297AA2AB00B7A6E0 /* ClothesDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ClothesDataModel.xcdatamodel; sourceTree = "<group>"; };
-		85632C5C297AA56B00B7A6E0 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
-		857E934B298146CD00195BC0 /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
-		857E934F29814BBC00195BC0 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
-		8588F5CD297EA3FD007EEF1A /* CreationClothView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreationClothView.swift; sourceTree = "<group>"; };
 		CD0103BD296FF746003CB3A1 /* Wearer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wearer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD0103C0296FF746003CB3A1 /* WearerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WearerApp.swift; sourceTree = "<group>"; };
 		CD0103C2296FF746003CB3A1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -122,9 +97,6 @@
 			children = (
 				CD3B450A2979982A007740B2 /* OpenMeteo */,
 				CDA111FE297AE7A9008B3253 /* LocationHandler.swift */,
-				852C1CAB29716AAE001D323E /* Cloth.swift */,
-				85632C5C297AA56B00B7A6E0 /* DataController.swift */,
-				85632C59297AA2AB00B7A6E0 /* ClothesDataModel.xcdatamodeld */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -135,10 +107,6 @@
 				9AF10463297012D1006E40D2 /* MainView.swift */,
 				9AD1F1722978006900063C22 /* ViewModel.swift */,
 				CDA11200297E8709008B3253 /* WardrobeView.swift */,
-				857E934F29814BBC00195BC0 /* CameraView.swift */,
-				852C1CAD2971722A001D323E /* MyWardrobeView.swift */,
-				853602F729769CBB00AE31DA /* ClothesList.swift */,
-				8588F5CD297EA3FD007EEF1A /* CreationClothView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -150,10 +118,6 @@
 				CD3AFD2C29758E0D0097EF3B /* Title.swift */,
 				CD38C0312975F602005A4769 /* ShortForecast.swift */,
 				CD38C0382976A11E005A4769 /* Semimodal.swift */,
-				852C1CA529715B5D001D323E /* HClothViewer.swift */,
-				853602F929769D7B00AE31DA /* GridClothViewer.swift */,
-				85178DDF297FD7D4001C0373 /* CreateButton.swift */,
-				857E934B298146CD00195BC0 /* Camera.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -273,19 +237,6 @@
 				CD0103C1296FF746003CB3A1 /* WearerApp.swift in Sources */,
 				CDA111FD297A9C08008B3253 /* OMRequest.swift in Sources */,
 				CD38C0342975F63D005A4769 /* OMResponse.swift in Sources */,
-				852C1CAC29716AAE001D323E /* Cloth.swift in Sources */,
-				85632C5D297AA56B00B7A6E0 /* DataController.swift in Sources */,
-				CD0103C3296FF746003CB3A1 /* ContentView.swift in Sources */,
-				85178DE0297FD7D4001C0373 /* CreateButton.swift in Sources */,
-				853602F829769CBB00AE31DA /* ClothesList.swift in Sources */,
-				8588F5CE297EA3FD007EEF1A /* CreationClothView.swift in Sources */,
-				853602FA29769D7B00AE31DA /* GridClothViewer.swift in Sources */,
-				85632C5B297AA2AB00B7A6E0 /* ClothesDataModel.xcdatamodeld in Sources */,
-				857E934C298146CD00195BC0 /* Camera.swift in Sources */,
-				CD0103C1296FF746003CB3A1 /* WearerApp.swift in Sources */,
-				852C1CAE2971722A001D323E /* MyWardrobeView.swift in Sources */,
-				852C1CA629715B5D001D323E /* HClothViewer.swift in Sources */,
-				857E935029814BBC00195BC0 /* CameraView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,10 +365,9 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Wearer/Preview Content\"";
-				DEVELOPMENT_TEAM = 5P484DP89F;
+				DEVELOPMENT_TEAM = SZ62HAV5P2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSCameraUsageDescription = "We need camera permission";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "The app need access to your current position to show weather forecast";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -449,7 +399,6 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "The app need access to your current position to show weather forecast";
-				INFOPLIST_KEY_NSCameraUsageDescription = "We need camera permission";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -490,19 +439,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		85632C59297AA2AB00B7A6E0 /* ClothesDataModel.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				85632C5A297AA2AB00B7A6E0 /* ClothesDataModel.xcdatamodel */,
-			);
-			currentVersion = 85632C5A297AA2AB00B7A6E0 /* ClothesDataModel.xcdatamodel */;
-			path = ClothesDataModel.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = CD0103B5296FF746003CB3A1 /* Project object */;
 }
