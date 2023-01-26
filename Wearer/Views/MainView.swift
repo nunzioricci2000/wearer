@@ -11,6 +11,7 @@ struct MainView: View {
     @StateObject var viewModel: ViewModel = .init()
     @Namespace var namespace
     @State var showWardrobe = false
+    @FetchRequest(entity: Cloth.entity(), sortDescriptors: []) var clothes: FetchedResults<Cloth>
     var body: some View {
         if showWardrobe {
             wardrobeView

@@ -9,18 +9,20 @@ import SwiftUI
 
 extension MainView {
     var wardrobeView: some View {
-        VStack(alignment: .leading) {
-            HStack {
-                Image(systemName: "chevron.left")
-                    .onTapGesture {
-                        withAnimation {
-                            showWardrobe = false
+        NavigationStack {
+            VStack(alignment: .leading) {
+                HStack {
+                    Image(systemName: "chevron.left")
+                        .onTapGesture {
+                            withAnimation {
+                                showWardrobe = false
+                            }
                         }
-                    }
-                Title("My wardrobe")
-                    .matchedGeometryEffect(id: "wardrobe-title", in: namespace)
-            }.padding()
-            Spacer()
+                    Title("My wardrobe")
+                        .matchedGeometryEffect(id: "wardrobe-title", in: namespace)
+                }.padding()
+                WardrobeView()
+            }
         }
     }
 }

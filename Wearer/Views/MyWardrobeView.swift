@@ -8,19 +8,12 @@
 import SwiftUI
 
 struct WardrobeView: View {
-    let cloth = Cloth(name: "Sabaku", type: ClothType.jacket, picture: "")
-    let jeans = Cloth(name: "Jeans Figo", type: ClothType.jeans, picture: "")
-    let shoes = Cloth(name: "Scarpe Fighe", type: ClothType.shoes, picture: "")
-    let shirt = Cloth(name: "Magliette Fighe", type: ClothType.shirt, picture: "")
     var body: some View {
-        NavigationView {
-            ScrollView(showsIndicators: false) {
-                HClothViewer(cloth: cloth)
-                HClothViewer(cloth: shirt)
-                HClothViewer(cloth: jeans)
-                HClothViewer(cloth: shoes)
-                    .navigationTitle("My Wardrobe")
-            }
+        ScrollView(showsIndicators: false) {
+            HClothViewer(clothType: "cloth")
+            HClothViewer(clothType: "shirt")
+            HClothViewer(clothType: "jeans")
+            HClothViewer(clothType: "shoes")
         }
     }
 }

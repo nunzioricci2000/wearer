@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CameraView: View {
     @State private var sourceType: UIImagePickerController.SourceType = .camera
-    @State private var selectedImage: UIImage?
+    @Binding var selectedImage: UIImage?
     @State private var isImagePickerDisplay = false
     @State private var isCameraDisplay = false
     var body: some View {
@@ -47,12 +47,6 @@ struct CameraView: View {
                             selectedImage: self.$selectedImage,
                             sourceType: self.sourceType)}
             }
-            .navigationBarTitle("Demo")
         }
-    }
-}
-struct CameraView_Previews: PreviewProvider {
-    static var previews: some View {
-        CameraView()
     }
 }

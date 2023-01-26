@@ -24,7 +24,6 @@
 		CDA11201297E8709008B3253 /* WardrobeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA11200297E8709008B3253 /* WardrobeView.swift */; };
 		CDEDCC0F298288C50091FC08 /* HClothViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEDCC0B298288C50091FC08 /* HClothViewer.swift */; };
 		CDEDCC10298288C50091FC08 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEDCC0C298288C50091FC08 /* Camera.swift */; };
-		CDEDCC11298288C50091FC08 /* CreateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEDCC0D298288C50091FC08 /* CreateButton.swift */; };
 		CDEDCC12298288C50091FC08 /* GridClothViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEDCC0E298288C50091FC08 /* GridClothViewer.swift */; };
 		CDEDCC17298288D50091FC08 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEDCC13298288D40091FC08 /* CameraView.swift */; };
 		CDEDCC18298288D50091FC08 /* CreationClothView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEDCC14298288D50091FC08 /* CreationClothView.swift */; };
@@ -32,7 +31,6 @@
 		CDEDCC1A298288D50091FC08 /* MyWardrobeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEDCC16298288D50091FC08 /* MyWardrobeView.swift */; };
 		CDEDCC1F298288DF0091FC08 /* ClothesDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CDEDCC1B298288DE0091FC08 /* ClothesDataModel.xcdatamodeld */; };
 		CDEDCC20298288DF0091FC08 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEDCC1D298288DE0091FC08 /* DataController.swift */; };
-		CDEDCC21298288DF0091FC08 /* Cloth.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEDCC1E298288DE0091FC08 /* Cloth.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,7 +52,6 @@
 		CDA11200297E8709008B3253 /* WardrobeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardrobeView.swift; sourceTree = "<group>"; };
 		CDEDCC0B298288C50091FC08 /* HClothViewer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HClothViewer.swift; sourceTree = "<group>"; };
 		CDEDCC0C298288C50091FC08 /* Camera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
-		CDEDCC0D298288C50091FC08 /* CreateButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateButton.swift; sourceTree = "<group>"; };
 		CDEDCC0E298288C50091FC08 /* GridClothViewer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridClothViewer.swift; sourceTree = "<group>"; };
 		CDEDCC13298288D40091FC08 /* CameraView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		CDEDCC14298288D50091FC08 /* CreationClothView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreationClothView.swift; sourceTree = "<group>"; };
@@ -62,7 +59,6 @@
 		CDEDCC16298288D50091FC08 /* MyWardrobeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyWardrobeView.swift; sourceTree = "<group>"; };
 		CDEDCC1C298288DE0091FC08 /* ClothesDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ClothesDataModel.xcdatamodel; sourceTree = "<group>"; };
 		CDEDCC1D298288DE0091FC08 /* DataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
-		CDEDCC1E298288DE0091FC08 /* Cloth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cloth.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,7 +113,6 @@
 		CD0103CE29700DB2003CB3A1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				CDEDCC1E298288DE0091FC08 /* Cloth.swift */,
 				CDEDCC1B298288DE0091FC08 /* ClothesDataModel.xcdatamodeld */,
 				CDEDCC1D298288DE0091FC08 /* DataController.swift */,
 				CD3B450A2979982A007740B2 /* OpenMeteo */,
@@ -144,7 +139,6 @@
 			isa = PBXGroup;
 			children = (
 				CDEDCC0C298288C50091FC08 /* Camera.swift */,
-				CDEDCC0D298288C50091FC08 /* CreateButton.swift */,
 				CDEDCC0E298288C50091FC08 /* GridClothViewer.swift */,
 				CDEDCC0B298288C50091FC08 /* HClothViewer.swift */,
 				CD0103D329700E75003CB3A1 /* CornerRadius.swift */,
@@ -273,11 +267,9 @@
 				CD0103D429700E75003CB3A1 /* CornerRadius.swift in Sources */,
 				CD0103C1296FF746003CB3A1 /* WearerApp.swift in Sources */,
 				CDEDCC12298288C50091FC08 /* GridClothViewer.swift in Sources */,
-				CDEDCC21298288DF0091FC08 /* Cloth.swift in Sources */,
 				CDEDCC10298288C50091FC08 /* Camera.swift in Sources */,
 				CDEDCC0F298288C50091FC08 /* HClothViewer.swift in Sources */,
 				CDEDCC1F298288DF0091FC08 /* ClothesDataModel.xcdatamodeld in Sources */,
-				CDEDCC11298288C50091FC08 /* CreateButton.swift in Sources */,
 				CDEDCC20298288DF0091FC08 /* DataController.swift in Sources */,
 				CDA111FD297A9C08008B3253 /* OMRequest.swift in Sources */,
 				CD38C0342975F63D005A4769 /* OMResponse.swift in Sources */,
