@@ -22,9 +22,6 @@
 		CD0103C3296FF746003CB3A1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0103C2296FF746003CB3A1 /* ContentView.swift */; };
 		CD0103C5296FF748003CB3A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD0103C4296FF748003CB3A1 /* Assets.xcassets */; };
 		CD0103C8296FF748003CB3A1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD0103C7296FF748003CB3A1 /* Preview Assets.xcassets */; };
-		CD0103D429700E75003CB3A1 /* Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0103D329700E75003CB3A1 /* Component.swift */; };
-		CD0103D629700E80003CB3A1 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0103D529700E80003CB3A1 /* View.swift */; };
-		CD0103D829700E8D003CB3A1 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0103D729700E8D003CB3A1 /* Model.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,9 +41,6 @@
 		CD0103C2296FF746003CB3A1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		CD0103C4296FF748003CB3A1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CD0103C7296FF748003CB3A1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		CD0103D329700E75003CB3A1 /* Component.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Component.swift; sourceTree = "<group>"; };
-		CD0103D529700E80003CB3A1 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
-		CD0103D729700E8D003CB3A1 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,7 +95,6 @@
 		CD0103CE29700DB2003CB3A1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				CD0103D729700E8D003CB3A1 /* Model.swift */,
 				852C1CAB29716AAE001D323E /* Cloth.swift */,
 				85632C5C297AA56B00B7A6E0 /* DataController.swift */,
 				85632C59297AA2AB00B7A6E0 /* ClothesDataModel.xcdatamodeld */,
@@ -112,7 +105,6 @@
 		CD0103D129700DCA003CB3A1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				CD0103D529700E80003CB3A1 /* View.swift */,
 				857E934F29814BBC00195BC0 /* CameraView.swift */,
 				852C1CAD2971722A001D323E /* WardrobeView.swift */,
 				853602F729769CBB00AE31DA /* ClothesList.swift */,
@@ -124,7 +116,6 @@
 		CD0103D229700DD3003CB3A1 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				CD0103D329700E75003CB3A1 /* Component.swift */,
 				852C1CA529715B5D001D323E /* HClothViewer.swift */,
 				853602F929769D7B00AE31DA /* GridClothViewer.swift */,
 				85178DDF297FD7D4001C0373 /* CreateButton.swift */,
@@ -205,11 +196,8 @@
 			files = (
 				852C1CAC29716AAE001D323E /* Cloth.swift in Sources */,
 				85632C5D297AA56B00B7A6E0 /* DataController.swift in Sources */,
-				CD0103D829700E8D003CB3A1 /* Model.swift in Sources */,
-				CD0103D629700E80003CB3A1 /* View.swift in Sources */,
 				CD0103C3296FF746003CB3A1 /* ContentView.swift in Sources */,
 				85178DE0297FD7D4001C0373 /* CreateButton.swift in Sources */,
-				CD0103D429700E75003CB3A1 /* Component.swift in Sources */,
 				853602F829769CBB00AE31DA /* ClothesList.swift in Sources */,
 				8588F5CE297EA3FD007EEF1A /* CreationClothView.swift in Sources */,
 				853602FA29769D7B00AE31DA /* GridClothViewer.swift in Sources */,
