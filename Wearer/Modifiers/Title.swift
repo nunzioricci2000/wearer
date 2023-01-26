@@ -7,22 +7,25 @@
 
 import SwiftUI
 
-struct Title: View {
-    @State var text: String
-    init(_ text: String) {
-        self.text = text
-    }
-    var body: some View {
+struct Title: ViewModifier {
+    func body(content: Content) -> some View {
         HStack {
-            Text(text)
+            content
                 .font(.system(size: 28, weight: .semibold, design: .rounded))
             Spacer()
         }.padding([.horizontal, .top])
     }
 }
 
+extension Text {
+    func title() -> some View {
+        modifier(Title())
+    }
+}
+
 struct Title_Previews: PreviewProvider {
     static var previews: some View {
-        Title("Title")
+        Text("Title")
+            .title()
     }
 }

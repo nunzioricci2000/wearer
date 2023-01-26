@@ -84,7 +84,8 @@ struct MainView: View {
             .overlay(alignment: .top) {
                 VStack {
                     modalPiripicchio
-                    Title("Today's suggestions")
+                    Text("Today's suggestions")
+                        .title()
                     suggestions
                     wardrobeButton
                 }
@@ -125,7 +126,8 @@ struct MainView: View {
     var wardrobeButton: some View {
         Color.clear.overlay(alignment: .top) {
             VStack {
-                Title("My wardrobe")
+                Text("My wardrobe")
+                    .title()
                     .matchedGeometryEffect(id: "wardrobe-title", in: namespace)
                     .foregroundColor(.white)
                     .padding(.bottom, 7)

@@ -18,7 +18,8 @@ extension MainView {
                                 showWardrobe = false
                             }
                         }
-                    Title("My wardrobe")
+                    Text("My wardrobe")
+                        .title()
                         .matchedGeometryEffect(id: "wardrobe-title", in: namespace)
                 }.padding()
                 WardrobeView()
