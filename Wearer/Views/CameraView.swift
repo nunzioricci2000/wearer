@@ -10,9 +10,10 @@ import SwiftUI
 
 struct CameraView: View {
     
-    @State private var sourceType: UIImagePickerController.SourceType = .photoLibrary
+    @State private var sourceType: UIImagePickerController.SourceType = .camera
     @State private var selectedImage: UIImage?
     @State private var isImagePickerDisplay = false
+    @State private var isCameraDisplay = false
     
     var body: some View {
         NavigationView {
@@ -33,17 +34,16 @@ struct CameraView: View {
                 }
                 Button("Camera") {
                     self.sourceType = .camera
-                    self.isImagePickerDisplay.toggle()
+                    self.isCameraDisplay.toggle()
                 }.padding()
+                    .fullScreenCover(isPresented: $isCameraDisplay, content: {ImagePickerView(selectedImage: self.$selectedImage, sourceType: self.sourceType)})
                 Button("photo") {
                     self.sourceType = .photoLibrary
                     self.isImagePickerDisplay.toggle()
                 }.padding()
+                    .sheet(isPresented: self.$isImagePickerDisplay, content: {ImagePickerView(selectedImage: self.$selectedImage, sourceType: self.sourceType)})
             }
             .navigationBarTitle("Demo")
-            .sheet(isPresented: self.$isImagePickerDisplay) {
-                ImagePickerView(selectedImage: self.$selectedImage, sourceType: self.sourceType)
-            }
         }
     }
 }
