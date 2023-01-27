@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct CameraView: View {
-    @State private var sourceType: UIImagePickerController.SourceType = .camera
     @Binding var selectedImage: UIImage?
     @State private var isImagePickerDisplay = false
     @State private var isCameraDisplay = false
@@ -29,23 +28,21 @@ struct CameraView: View {
                         .frame(width: 300, height: 300)
                 }
                 Button("Camera") {
-                    self.sourceType = .camera
                     self.isCameraDisplay.toggle()
                 }.padding()
                     .fullScreenCover(
                         isPresented: $isCameraDisplay ) {
                             ImagePickerView(
                                 selectedImage: self.$selectedImage,
-                                sourceType: self.sourceType)
+                                sourceType: .camera)
                         }
                 Button("photo") {
-                    self.sourceType = .photoLibrary
                     self.isImagePickerDisplay.toggle()
                 }.padding()
                     .sheet(isPresented: self.$isImagePickerDisplay) {
                         ImagePickerView(
                             selectedImage: self.$selectedImage,
-                            sourceType: self.sourceType)}
+                            sourceType: .photoLibrary)}
             }
         }
     }
