@@ -6,11 +6,13 @@
 //
 
 import SwiftUI
+import PhotosUI
 
 struct CameraView: View {
     @Binding var selectedImage: UIImage?
     @State private var isImagePickerDisplay = false
     @State private var isCameraDisplay = false
+    @State var selectedItem: PhotosPickerItem?
     var body: some View {
         NavigationView {
             VStack {
@@ -30,19 +32,11 @@ struct CameraView: View {
                 Button("Camera") {
                     self.isCameraDisplay.toggle()
                 }.padding()
-                    .fullScreenCover(
-                        isPresented: $isCameraDisplay ) {
-                            ImagePickerView(
-                                selectedImage: self.$selectedImage,
-                                sourceType: .camera)
-                        }
+                    .photosTaker(isPresented: $isCameraDisplay, selection: $selectedImage)
                 Button("photo") {
                     self.isImagePickerDisplay.toggle()
                 }.padding()
-                    .sheet(isPresented: self.$isImagePickerDisplay) {
-                        ImagePickerView(
-                            selectedImage: self.$selectedImage,
-                            sourceType: .photoLibrary)}
+                    .photosPicker(isPresented: $isImagePickerDisplay, selection: $selectedItem)
             }
         }
     }

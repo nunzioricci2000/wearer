@@ -19,11 +19,11 @@
 		CD38C0392976A11E005A4769 /* Semimodal.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD38C0382976A11E005A4769 /* Semimodal.swift */; };
 		CD3AFD2D29758E0D0097EF3B /* Title.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3AFD2C29758E0D0097EF3B /* Title.swift */; };
 		CD3B450C29799849007740B2 /* OpenMeteo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3B450B29799849007740B2 /* OpenMeteo.swift */; };
+		CD6DB056298306A600415415 /* PhotosTaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6DB055298306A600415415 /* PhotosTaker.swift */; };
 		CDA111FD297A9C08008B3253 /* OMRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA111FC297A9C08008B3253 /* OMRequest.swift */; };
 		CDA111FF297AE7A9008B3253 /* LocationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA111FE297AE7A9008B3253 /* LocationHandler.swift */; };
 		CDA11201297E8709008B3253 /* WardrobeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA11200297E8709008B3253 /* WardrobeView.swift */; };
 		CDEDCC0F298288C50091FC08 /* HClothViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEDCC0B298288C50091FC08 /* HClothViewer.swift */; };
-		CDEDCC10298288C50091FC08 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEDCC0C298288C50091FC08 /* Camera.swift */; };
 		CDEDCC12298288C50091FC08 /* GridClothViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEDCC0E298288C50091FC08 /* GridClothViewer.swift */; };
 		CDEDCC17298288D50091FC08 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEDCC13298288D40091FC08 /* CameraView.swift */; };
 		CDEDCC18298288D50091FC08 /* CreationClothView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEDCC14298288D50091FC08 /* CreationClothView.swift */; };
@@ -47,11 +47,11 @@
 		CD38C0382976A11E005A4769 /* Semimodal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Semimodal.swift; sourceTree = "<group>"; };
 		CD3AFD2C29758E0D0097EF3B /* Title.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Title.swift; sourceTree = "<group>"; };
 		CD3B450B29799849007740B2 /* OpenMeteo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenMeteo.swift; sourceTree = "<group>"; };
+		CD6DB055298306A600415415 /* PhotosTaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosTaker.swift; sourceTree = "<group>"; };
 		CDA111FC297A9C08008B3253 /* OMRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OMRequest.swift; sourceTree = "<group>"; };
 		CDA111FE297AE7A9008B3253 /* LocationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationHandler.swift; sourceTree = "<group>"; };
 		CDA11200297E8709008B3253 /* WardrobeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardrobeView.swift; sourceTree = "<group>"; };
 		CDEDCC0B298288C50091FC08 /* HClothViewer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HClothViewer.swift; sourceTree = "<group>"; };
-		CDEDCC0C298288C50091FC08 /* Camera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 		CDEDCC0E298288C50091FC08 /* GridClothViewer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridClothViewer.swift; sourceTree = "<group>"; };
 		CDEDCC13298288D40091FC08 /* CameraView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		CDEDCC14298288D50091FC08 /* CreationClothView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreationClothView.swift; sourceTree = "<group>"; };
@@ -139,7 +139,6 @@
 		CD0103D229700DD3003CB3A1 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				CDEDCC0C298288C50091FC08 /* Camera.swift */,
 				CDEDCC0E298288C50091FC08 /* GridClothViewer.swift */,
 				CDEDCC0B298288C50091FC08 /* HClothViewer.swift */,
 				CD0103D329700E75003CB3A1 /* CornerRadius.swift */,
@@ -163,6 +162,7 @@
 			children = (
 				CD38C0382976A11E005A4769 /* Semimodal.swift */,
 				CD3AFD2C29758E0D0097EF3B /* Title.swift */,
+				CD6DB055298306A600415415 /* PhotosTaker.swift */,
 			);
 			path = Modifiers;
 			sourceTree = "<group>";
@@ -271,11 +271,11 @@
 				CD3B450C29799849007740B2 /* OpenMeteo.swift in Sources */,
 				CD0103C3296FF746003CB3A1 /* ContentView.swift in Sources */,
 				CD38C0322975F602005A4769 /* ShortForecast.swift in Sources */,
+				CD6DB056298306A600415415 /* PhotosTaker.swift in Sources */,
 				CDA11201297E8709008B3253 /* WardrobeView.swift in Sources */,
 				CD0103D429700E75003CB3A1 /* CornerRadius.swift in Sources */,
 				CD0103C1296FF746003CB3A1 /* WearerApp.swift in Sources */,
 				CDEDCC12298288C50091FC08 /* GridClothViewer.swift in Sources */,
-				CDEDCC10298288C50091FC08 /* Camera.swift in Sources */,
 				CDEDCC0F298288C50091FC08 /* HClothViewer.swift in Sources */,
 				CDEDCC1F298288DF0091FC08 /* ClothesDataModel.xcdatamodeld in Sources */,
 				CDEDCC20298288DF0091FC08 /* DataController.swift in Sources */,

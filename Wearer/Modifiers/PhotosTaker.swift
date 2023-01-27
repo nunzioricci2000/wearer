@@ -1,12 +1,10 @@
 //
-//  Camera.swift
+//  PhotoTaker.swift
 //  Wearer
 //
-//  Created by Alberto Mura on 25/01/23.
+//  Created by Nunzio Ricci on 26/01/23.
 //
 
-import Foundation
-import UIKit
 import SwiftUI
 
 struct ImagePickerView: UIViewControllerRepresentable {
@@ -37,5 +35,40 @@ class Coordinator: NSObject, UINavigationControllerDelegate, UIImagePickerContro
         guard let selectedImage = info[.originalImage] as? UIImage else { return }
         self.picker.selectedImage = selectedImage
         self.picker.isPresented.wrappedValue.dismiss()
+    }
+}
+
+struct PhotosTaker: View {
+    @Binding var selectedImage: UIImage?
+    init(_ image: Binding<UIImage?>) {
+        _selectedImage = image
+    }
+    var body: some View {
+        ImagePickerView(selectedImage: $selectedImage, sourceType: .camera)
+            .ignoresSafeArea()
+    }
+}
+
+extension View {
+    func photosTaker(isPresented: Binding<Bool>, selection image: Binding<UIImage?>) -> some View {
+        fullScreenCover(isPresented: isPresented) {
+            PhotosTaker(image)
+        }
+    }
+}
+
+private struct PhotoTakerPreview: View {
+    @State var isPresented: Bool = false
+    @State var image: UIImage?
+    var body: some View {
+        Button("Show") {
+            isPresented.toggle()
+        }.photosTaker(isPresented: $isPresented, selection: $image)
+    }
+}
+
+struct PhotoTaker_Previews: PreviewProvider {
+    static var previews: some View {
+        PhotoTakerPreview()
     }
 }

@@ -14,7 +14,7 @@ struct HClothViewer: View {
     var body: some View {
         VStack {
             NavigationLink {
-                GridClothViewer()
+                GridClothViewer(clothType: clothType)
             } label: {
                 HStack {
                     Text(clothType)

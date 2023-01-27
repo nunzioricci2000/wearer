@@ -5,4 +5,9 @@
         <attribute name="picture" optional="YES" attributeType="Binary"/>
         <attribute name="type" optional="YES" attributeType="String"/>
     </entity>
+    <entity name="Outfit" representedClassName="Outfit" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="picture" optional="YES" attributeType="Binary"/>
+        <relationship name="clothes" optional="YES" toMany="YES" minCount="1" maxCount="4" deletionRule="Nullify" destinationEntity="Cloth"/>
+    </entity>
 </model>
