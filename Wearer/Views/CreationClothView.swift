@@ -14,6 +14,7 @@ struct CreationClothView: View {
     @State var image: UIImage?
     @State var type: String = "Jeans"
     @State var warmness: Int = 1
+    let colors: [String] = ["Black", "Brown", "Yellow", "White", "Blue", "Green", "Orange", "Red", "Pink"]
     var body: some View {
         NavigationStack {
             VStack {
@@ -36,8 +37,26 @@ struct CreationClothView: View {
                             .navigationTitle("New Cloth")
                     }
                 }
+                .padding()
+//                HStack {
+//                    TextField("Name", text: $name)
+//                        .padding()
+//                }
+//                .frame(width: 400, height: 50)
+//                .background(Color(.systemGray6))
+//                .cornerRadius(14)
+//                .padding(.top, 40.0)
                 Picker(selection: $type, label: Text("Category")) {
+                    ForEach(colors, id: \.self) { color in
+                        HStack {
+                            Circle()
+                                .fill(Color(color))
+                                .frame(width: 15)
+                            Text(color)
+                        }
+                    }
                 }
+                .pickerStyle(.navigationLink)
                 .padding()
                 .frame(width: 400, height: 50)
                 .background(Color(.systemGray6))
