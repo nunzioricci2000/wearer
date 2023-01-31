@@ -36,21 +36,8 @@ struct CreationClothView: View {
                             .navigationTitle("New Cloth")
                     }
                 }
-                HStack {
-                    TextField("Name", text: $name)
-                        .padding()
-                }
-                .frame(width: 400, height: 50)
-                .background(Color(.systemGray6))
-                .cornerRadius(14)
-                .padding(.top, 40.0)
                 Picker(selection: $type, label: Text("Category")) {
-                    Text("Jeans").tag("Jeans")
-                    Text("Jackets").tag("Jackets")
-                    Text("Hats").tag("Hats")
-                    Text("Shoes").tag("Shoes")
                 }
-                .pickerStyle(.automatic)
                 .padding()
                 .frame(width: 400, height: 50)
                 .background(Color(.systemGray6))
