@@ -13,6 +13,7 @@ struct CreationClothView: View {
     @Environment(\.managedObjectContext) var moc
     @State var image: UIImage?
     @State var type: String = "Jeans"
+    @State var warmness: Int = 1
     var body: some View {
         NavigationStack {
             VStack {
@@ -55,11 +56,14 @@ struct CreationClothView: View {
                 .background(Color(.systemGray6))
                 .cornerRadius(14)
                 .padding(.top)
+                WarmnessPicker(rating: $warmness, isEditing: .constant(true))
+                    .padding(.top)
                 Spacer()
                 Button {
                     let cloth = Cloth( context: moc)
                     cloth.picture = image?.pngData()
                     cloth.type = type
+                    cloth.warmness = Int16(warmness)
                     try? moc.save()
                     dismiss()
                 }label: {
