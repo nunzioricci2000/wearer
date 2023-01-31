@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21513" systemVersion="22A380" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Cloth" representedClassName="Cloth" syncable="YES" codeGenerationType="class">
-        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="color" optional="YES" attributeType="String"/>
         <attribute name="picture" optional="YES" attributeType="Binary"/>
         <attribute name="type" optional="YES" attributeType="String"/>
+        <attribute name="warmness" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="Outfit" representedClassName="Outfit" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="picture" optional="YES" attributeType="Binary"/>
+        <relationship name="clothes" optional="YES" toMany="YES" minCount="1" maxCount="4" deletionRule="Nullify" destinationEntity="Cloth"/>
     </entity>
 </model>
