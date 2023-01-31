@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		133B90FA2987D5060077B347 /* ClothDisplayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133B90F92987D5060077B347 /* ClothDisplayer.swift */; };
 		85BCF25C298916C70097B27C /* WeatherQuote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BCF25B298916C70097B27C /* WeatherQuote.swift */; };
+		85F3983229892C4D00516353 /* Caption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F3983129892C4D00516353 /* Caption.swift */; };
 		9AB8CA9D29891FCA00E37A20 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB8CA9C29891FCA00E37A20 /* DetailView.swift */; };
 		9AB8CA9F2989203800E37A20 /* WarmnessPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB8CA9E2989203800E37A20 /* WarmnessPicker.swift */; };
 		9AD1F1732978006900063C22 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD1F1722978006900063C22 /* ViewModel.swift */; };
@@ -40,6 +41,7 @@
 /* Begin PBXFileReference section */
 		133B90F92987D5060077B347 /* ClothDisplayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothDisplayer.swift; sourceTree = "<group>"; };
 		85BCF25B298916C70097B27C /* WeatherQuote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherQuote.swift; sourceTree = "<group>"; };
+		85F3983129892C4D00516353 /* Caption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Caption.swift; sourceTree = "<group>"; };
 		9AB8CA9C29891FCA00E37A20 /* DetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		9AB8CA9E2989203800E37A20 /* WarmnessPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WarmnessPicker.swift; sourceTree = "<group>"; };
 		9AD1F1722978006900063C22 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				CDEDCC0B298288C50091FC08 /* HClothViewer.swift */,
 				CD0103D329700E75003CB3A1 /* CornerRadius.swift */,
 				85BCF25B298916C70097B27C /* WeatherQuote.swift */,
+				85F3983129892C4D00516353 /* Caption.swift */,
 				CD38C0312975F602005A4769 /* ShortForecast.swift */,
 				133B90F92987D5060077B347 /* ClothDisplayer.swift */,
 			);
@@ -273,6 +276,7 @@
 			files = (
 				133B90FA2987D5060077B347 /* ClothDisplayer.swift in Sources */,
 				9AB8CA9D29891FCA00E37A20 /* DetailView.swift in Sources */,
+				85F3983229892C4D00516353 /* Caption.swift in Sources */,
 				CD3AFD2D29758E0D0097EF3B /* Title.swift in Sources */,
 				CDEDCC18298288D50091FC08 /* CreationClothView.swift in Sources */,
 				85BCF25C298916C70097B27C /* WeatherQuote.swift in Sources */,
