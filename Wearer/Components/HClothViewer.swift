@@ -33,7 +33,7 @@ struct HClothViewer: View {
                     ForEach(clothes) { cloth in
                         if clothType.lowercased() == cloth.type?.lowercased() {
                             NavigationLink(destination: {
-                                DetailView(cloth: cloth, name: cloth.name ?? "", image: UIImage(data: cloth.picture ?? UIImage(imageLiteralResourceName: "ClothPlaceholder").pngData()!), type: cloth.type ?? "Unknown", warmIndex: 4)
+                                DetailView(cloth: cloth, image: UIImage(data: cloth.picture ?? UIImage(imageLiteralResourceName: "ClothPlaceholder").pngData()!), type: cloth.type ?? "Unknown", warmIndex: 4)
                             }, label: {
                                 Image(uiImage: .init(data: cloth.picture ?? UIImage(imageLiteralResourceName: "ClothPlaceholder").pngData()!) ?? UIImage(imageLiteralResourceName: "ClothPlaceholder"))
                                     .resizable()

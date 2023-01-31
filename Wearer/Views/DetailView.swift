@@ -18,7 +18,6 @@ struct DetailView: View {
     @State var isCamera = false
     @State var isPhotoLibrary = false
     @State var cloth: Cloth
-    @State var name: String
     @State var image: UIImage?
     @State var type: String
     @State var warmIndex: Int
@@ -34,9 +33,6 @@ struct DetailView: View {
                             .frame(width: 360, height: 400)
                     }
                     .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
-                    Section(header: Text("Name")) {
-                        Text(name)
-                    }
                     Section(header: Text("Color")) {
                         Text(type)
                     }
@@ -69,9 +65,6 @@ struct DetailView: View {
                         }
                     }
                     .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
-                    Section(header: Text("Name")) {
-                        TextField("Name", text: $name)
-                    }
                     Section {
                         Picker(selection: $type, label: Text("Color")) {
                             ForEach(colors, id: \.self) { color in
@@ -92,7 +85,6 @@ struct DetailView: View {
             .onChange(of: editMode?.wrappedValue.isEditing) { changes in
                 if editMode?.wrappedValue.isEditing == false {
                     do {
-                        cloth.name = name
                         cloth.picture = image?.pngData()
                         cloth.type = type
                         isEditing = false
@@ -104,7 +96,6 @@ struct DetailView: View {
                 }
                 else {
                     isEditing = true
-                    name = cloth.name ?? "Unknown"
                     image = UIImage(data: cloth.picture ?? UIImage(imageLiteralResourceName: "ClothPlaceholder").pngData()!)
                     type = cloth.type ?? "Unknown"
                 }
