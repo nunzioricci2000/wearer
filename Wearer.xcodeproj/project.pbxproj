@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		133B90FA2987D5060077B347 /* ClothDisplayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133B90F92987D5060077B347 /* ClothDisplayer.swift */; };
-		9AB8CA9D29891FCA00E37A20 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB8CA9C29891FCA00E37A20 /* DetailView.swift */; };
+		9AB8CA9D29891FCA00E37A20 /* ClothEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB8CA9C29891FCA00E37A20 /* ClothEditorView.swift */; };
 		9AB8CA9F2989203800E37A20 /* WarmnessPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB8CA9E2989203800E37A20 /* WarmnessPicker.swift */; };
 		9AD1F1732978006900063C22 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD1F1722978006900063C22 /* ViewModel.swift */; };
 		9AF10464297012D1006E40D2 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF10463297012D1006E40D2 /* MainView.swift */; };
@@ -38,7 +38,7 @@
 
 /* Begin PBXFileReference section */
 		133B90F92987D5060077B347 /* ClothDisplayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothDisplayer.swift; sourceTree = "<group>"; };
-		9AB8CA9C29891FCA00E37A20 /* DetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		9AB8CA9C29891FCA00E37A20 /* ClothEditorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClothEditorView.swift; sourceTree = "<group>"; };
 		9AB8CA9E2989203800E37A20 /* WarmnessPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WarmnessPicker.swift; sourceTree = "<group>"; };
 		9AD1F1722978006900063C22 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		9AF10463297012D1006E40D2 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -132,7 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				CDEDCC13298288D40091FC08 /* CameraView.swift */,
-				9AB8CA9C29891FCA00E37A20 /* DetailView.swift */,
+				9AB8CA9C29891FCA00E37A20 /* ClothEditorView.swift */,
 				CDEDCC15298288D50091FC08 /* ClothesList.swift */,
 				CDEDCC14298288D50091FC08 /* CreationClothView.swift */,
 				CDEDCC16298288D50091FC08 /* MyWardrobeView.swift */,
@@ -269,7 +269,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				133B90FA2987D5060077B347 /* ClothDisplayer.swift in Sources */,
-				9AB8CA9D29891FCA00E37A20 /* DetailView.swift in Sources */,
+				9AB8CA9D29891FCA00E37A20 /* ClothEditorView.swift in Sources */,
 				CD3AFD2D29758E0D0097EF3B /* Title.swift in Sources */,
 				CDEDCC18298288D50091FC08 /* CreationClothView.swift in Sources */,
 				9AB8CA9F2989203800E37A20 /* WarmnessPicker.swift in Sources */,

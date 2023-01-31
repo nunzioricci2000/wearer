@@ -9,7 +9,7 @@ import SwiftUI
 
 // swiftlint:disable all
 
-struct DetailView: View {
+struct ClothEditorView: View {
     @Environment(\.editMode) private var editMode
     @Environment(\.dismiss) var dismiss
     @Environment(\.managedObjectContext) var moc
@@ -71,6 +71,7 @@ struct DetailView: View {
                                 Text(color)
                             }
                         }
+                        .pickerStyle(.navigationLink)
                     }
                     Section(header: Text("Warmness")) {
                         WarmnessPicker(rating: $warmIndex, isEditing: $isEditing)
@@ -87,6 +88,7 @@ struct DetailView: View {
                     do {
                         cloth.picture = image?.pngData()
                         cloth.type = type
+                        cloth.warmness = Int16(warmIndex)
                         isEditing = false
                         try moc.save()
                         print("Success")
@@ -98,6 +100,7 @@ struct DetailView: View {
                     isEditing = true
                     image = UIImage(data: cloth.picture ?? UIImage(imageLiteralResourceName: "ClothPlaceholder").pngData()!)
                     type = cloth.type ?? "Unknown"
+                    warmIndex = Int(cloth.warmness)
                 }
             }
             .confirmationDialog("Change item", isPresented: $isPresentingPhotoPicker) {
