@@ -20,6 +20,7 @@
 		CD38C0322975F602005A4769 /* ShortForecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD38C0312975F602005A4769 /* ShortForecast.swift */; };
 		CD38C0342975F63D005A4769 /* OMResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD38C0332975F63D005A4769 /* OMResponse.swift */; };
 		CD38C0392976A11E005A4769 /* Semimodal.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD38C0382976A11E005A4769 /* Semimodal.swift */; };
+		CD3AE4E029891B61007F5360 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3AE4DF29891B61007F5360 /* NetworkManager.swift */; };
 		CD3AFD2D29758E0D0097EF3B /* Title.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3AFD2C29758E0D0097EF3B /* Title.swift */; };
 		CD3B450C29799849007740B2 /* OpenMeteo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3B450B29799849007740B2 /* OpenMeteo.swift */; };
 		CD6DB056298306A600415415 /* PhotosTaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6DB055298306A600415415 /* PhotosTaker.swift */; };
@@ -51,6 +52,7 @@
 		CD38C0312975F602005A4769 /* ShortForecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortForecast.swift; sourceTree = "<group>"; };
 		CD38C0332975F63D005A4769 /* OMResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OMResponse.swift; sourceTree = "<group>"; };
 		CD38C0382976A11E005A4769 /* Semimodal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Semimodal.swift; sourceTree = "<group>"; };
+		CD3AE4DF29891B61007F5360 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		CD3AFD2C29758E0D0097EF3B /* Title.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Title.swift; sourceTree = "<group>"; };
 		CD3B450B29799849007740B2 /* OpenMeteo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenMeteo.swift; sourceTree = "<group>"; };
 		CD6DB055298306A600415415 /* PhotosTaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosTaker.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				CDEDCC1D298288DE0091FC08 /* DataController.swift */,
 				CD3B450A2979982A007740B2 /* OpenMeteo */,
 				CDA111FE297AE7A9008B3253 /* LocationHandler.swift */,
+				CD3AE4DF29891B61007F5360 /* NetworkManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -282,6 +285,7 @@
 				9AD1F1732978006900063C22 /* ViewModel.swift in Sources */,
 				CD3B450C29799849007740B2 /* OpenMeteo.swift in Sources */,
 				CD0103C3296FF746003CB3A1 /* ContentView.swift in Sources */,
+				CD3AE4E029891B61007F5360 /* NetworkManager.swift in Sources */,
 				CD38C0322975F602005A4769 /* ShortForecast.swift in Sources */,
 				CD6DB056298306A600415415 /* PhotosTaker.swift in Sources */,
 				CDA11201297E8709008B3253 /* WardrobeView.swift in Sources */,
