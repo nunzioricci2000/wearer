@@ -10,7 +10,6 @@ import Foundation
 class OpenMeteo {
     static var shared = OpenMeteo()
     private init() {}
-    
     var session = URLSession(configuration: .default)
     var decoder = JSONDecoder()
     func foreground(latitude: Double, longitude: Double) async throws -> OMResponse {
