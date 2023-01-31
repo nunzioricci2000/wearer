@@ -9,7 +9,7 @@ import SwiftUI
 
 @main
 struct WearerApp: App {
-    @State var dataController = DataController()
+    @State var dataController = DataController.shared
     var body: some Scene {
         WindowGroup {
             ContentView()

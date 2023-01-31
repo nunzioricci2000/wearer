@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+// swiftlint: disable all
+
 struct HClothViewer: View {
     let generator = UIImpactFeedbackGenerator(style: .light)
     @FetchRequest(entity: Cloth.entity(), sortDescriptors: []) var clothes: FetchedResults<Cloth>
@@ -30,12 +32,16 @@ struct HClothViewer: View {
                 HStack {
                     ForEach(clothes) { cloth in
                         if clothType.lowercased() == cloth.type?.lowercased() {
-                            Image(uiImage: .init(data: cloth.picture ?? UIImage(imageLiteralResourceName: "ClothPlaceholder").pngData()!) ?? UIImage(imageLiteralResourceName: "ClothPlaceholder"))
-                                .resizable()
-                                .aspectRatio(contentMode: .fill)
-                                .frame(width: 165, height: 165)
-                                .clipShape(Rectangle())
+                            NavigationLink(destination: {
+                                DetailView(cloth: cloth, image: UIImage(data: cloth.picture ?? UIImage(imageLiteralResourceName: "ClothPlaceholder").pngData()!), type: cloth.type ?? "Unknown", warmIndex: 4)
+                            }, label: {
+                                Image(uiImage: .init(data: cloth.picture ?? UIImage(imageLiteralResourceName: "ClothPlaceholder").pngData()!) ?? UIImage(imageLiteralResourceName: "ClothPlaceholder"))
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fill)
+                                    .frame(width: 165, height: 165)
+                                    .clipShape(Rectangle())
                                 .cornerRadius(30)
+                            })
                         }
                     }
                 }.padding(.leading)

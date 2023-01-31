@@ -58,7 +58,6 @@ struct CreationClothView: View {
                 Spacer()
                 Button {
                     let cloth = Cloth( context: moc)
-                    cloth.name = name
                     cloth.picture = image?.pngData()
                     cloth.type = type
                     try? moc.save()
