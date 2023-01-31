@@ -20,11 +20,7 @@ class ViewModel: ObservableObject {
         do {
             locationName = try await LocationHandler.shared.getLocationName()
             let coordinate = try await LocationHandler.shared.getLocation().coordinate
-            let request = OMRequest(latitude: coordinate.latitude,
-                                    longitude: coordinate.longitude,
-                                    hourly: [.temperature, .weatherCode],
-                                    currentWeather: true)
-            let response = try await OpenMeteo.shared.perform(request)
+            let response = try await OpenMeteo.shared.foreground(latitude: coordinate.latitude, longitude: coordinate.longitude)
             let currentWeatherForeround = OMForeground.from(code: response.currentWeather.weatherCode)
             currentWeatherDescription = currentWeatherForeround.weatherDescription
             currentWeather = .init(WeatherForegroud(temperature: "\(response.currentWeather.temperature)°C",

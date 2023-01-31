@@ -10,7 +10,8 @@
 		133B90FA2987D5060077B347 /* ClothDisplayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133B90F92987D5060077B347 /* ClothDisplayer.swift */; };
 		85BCF25C298916C70097B27C /* WeatherQuote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BCF25B298916C70097B27C /* WeatherQuote.swift */; };
 		85F3983229892C4D00516353 /* Caption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F3983129892C4D00516353 /* Caption.swift */; };
-		9AB8CA9D29891FCA00E37A20 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB8CA9C29891FCA00E37A20 /* DetailView.swift */; };
+		1341629C298922A900ADA08E /* WeatherDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1341629B298922A900ADA08E /* WeatherDetail.swift */; };
+		9AB8CA9D29891FCA00E37A20 /* ClothEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB8CA9C29891FCA00E37A20 /* ClothEditorView.swift */; };
 		9AB8CA9F2989203800E37A20 /* WarmnessPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB8CA9E2989203800E37A20 /* WarmnessPicker.swift */; };
 		9AD1F1732978006900063C22 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD1F1722978006900063C22 /* ViewModel.swift */; };
 		9AF10464297012D1006E40D2 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF10463297012D1006E40D2 /* MainView.swift */; };
@@ -22,6 +23,8 @@
 		CD38C0322975F602005A4769 /* ShortForecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD38C0312975F602005A4769 /* ShortForecast.swift */; };
 		CD38C0342975F63D005A4769 /* OMResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD38C0332975F63D005A4769 /* OMResponse.swift */; };
 		CD38C0392976A11E005A4769 /* Semimodal.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD38C0382976A11E005A4769 /* Semimodal.swift */; };
+		CD3AE4E029891B61007F5360 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3AE4DF29891B61007F5360 /* NetworkManager.swift */; };
+		CD3AE4E229892DDE007F5360 /* OMObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3AE4E129892DDE007F5360 /* OMObjects.swift */; };
 		CD3AFD2D29758E0D0097EF3B /* Title.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3AFD2C29758E0D0097EF3B /* Title.swift */; };
 		CD3B450C29799849007740B2 /* OpenMeteo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3B450B29799849007740B2 /* OpenMeteo.swift */; };
 		CD6DB056298306A600415415 /* PhotosTaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6DB055298306A600415415 /* PhotosTaker.swift */; };
@@ -42,7 +45,8 @@
 		133B90F92987D5060077B347 /* ClothDisplayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothDisplayer.swift; sourceTree = "<group>"; };
 		85BCF25B298916C70097B27C /* WeatherQuote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherQuote.swift; sourceTree = "<group>"; };
 		85F3983129892C4D00516353 /* Caption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Caption.swift; sourceTree = "<group>"; };
-		9AB8CA9C29891FCA00E37A20 /* DetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		1341629B298922A900ADA08E /* WeatherDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDetail.swift; sourceTree = "<group>"; };
+		9AB8CA9C29891FCA00E37A20 /* ClothEditorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClothEditorView.swift; sourceTree = "<group>"; };
 		9AB8CA9E2989203800E37A20 /* WarmnessPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WarmnessPicker.swift; sourceTree = "<group>"; };
 		9AD1F1722978006900063C22 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		9AF10463297012D1006E40D2 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -55,6 +59,8 @@
 		CD38C0312975F602005A4769 /* ShortForecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortForecast.swift; sourceTree = "<group>"; };
 		CD38C0332975F63D005A4769 /* OMResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OMResponse.swift; sourceTree = "<group>"; };
 		CD38C0382976A11E005A4769 /* Semimodal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Semimodal.swift; sourceTree = "<group>"; };
+		CD3AE4DF29891B61007F5360 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		CD3AE4E129892DDE007F5360 /* OMObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OMObjects.swift; sourceTree = "<group>"; };
 		CD3AFD2C29758E0D0097EF3B /* Title.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Title.swift; sourceTree = "<group>"; };
 		CD3B450B29799849007740B2 /* OpenMeteo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenMeteo.swift; sourceTree = "<group>"; };
 		CD6DB055298306A600415415 /* PhotosTaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosTaker.swift; sourceTree = "<group>"; };
@@ -128,6 +134,7 @@
 				CDEDCC1D298288DE0091FC08 /* DataController.swift */,
 				CD3B450A2979982A007740B2 /* OpenMeteo */,
 				CDA111FE297AE7A9008B3253 /* LocationHandler.swift */,
+				CD3AE4DF29891B61007F5360 /* NetworkManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -136,7 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				CDEDCC13298288D40091FC08 /* CameraView.swift */,
-				9AB8CA9C29891FCA00E37A20 /* DetailView.swift */,
+				9AB8CA9C29891FCA00E37A20 /* ClothEditorView.swift */,
 				CDEDCC15298288D50091FC08 /* ClothesList.swift */,
 				CDEDCC14298288D50091FC08 /* CreationClothView.swift */,
 				CDEDCC16298288D50091FC08 /* MyWardrobeView.swift */,
@@ -158,6 +165,7 @@
 				85F3983129892C4D00516353 /* Caption.swift */,
 				CD38C0312975F602005A4769 /* ShortForecast.swift */,
 				133B90F92987D5060077B347 /* ClothDisplayer.swift */,
+				1341629B298922A900ADA08E /* WeatherDetail.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -165,6 +173,7 @@
 		CD3B450A2979982A007740B2 /* OpenMeteo */ = {
 			isa = PBXGroup;
 			children = (
+				CD3AE4E129892DDE007F5360 /* OMObjects.swift */,
 				CDA111FC297A9C08008B3253 /* OMRequest.swift */,
 				CD38C0332975F63D005A4769 /* OMResponse.swift */,
 				CD3B450B29799849007740B2 /* OpenMeteo.swift */,
@@ -275,8 +284,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				133B90FA2987D5060077B347 /* ClothDisplayer.swift in Sources */,
-				9AB8CA9D29891FCA00E37A20 /* DetailView.swift in Sources */,
 				85F3983229892C4D00516353 /* Caption.swift in Sources */,
+				9AB8CA9D29891FCA00E37A20 /* ClothEditorView.swift in Sources */,
 				CD3AFD2D29758E0D0097EF3B /* Title.swift in Sources */,
 				CDEDCC18298288D50091FC08 /* CreationClothView.swift in Sources */,
 				85BCF25C298916C70097B27C /* WeatherQuote.swift in Sources */,
@@ -287,9 +296,12 @@
 				CDEDCC17298288D50091FC08 /* CameraView.swift in Sources */,
 				CDA111FF297AE7A9008B3253 /* LocationHandler.swift in Sources */,
 				CDEDCC19298288D50091FC08 /* ClothesList.swift in Sources */,
+				1341629C298922A900ADA08E /* WeatherDetail.swift in Sources */,
 				9AD1F1732978006900063C22 /* ViewModel.swift in Sources */,
 				CD3B450C29799849007740B2 /* OpenMeteo.swift in Sources */,
 				CD0103C3296FF746003CB3A1 /* ContentView.swift in Sources */,
+				CD3AE4E029891B61007F5360 /* NetworkManager.swift in Sources */,
+				CD3AE4E229892DDE007F5360 /* OMObjects.swift in Sources */,
 				CD38C0322975F602005A4769 /* ShortForecast.swift in Sources */,
 				CD6DB056298306A600415415 /* PhotosTaker.swift in Sources */,
 				CDA11201297E8709008B3253 /* WardrobeView.swift in Sources */,
@@ -432,6 +444,8 @@
 				DEVELOPMENT_TEAM = 57Z9KVXBQ7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "The app need access to your current position to show weather forecast";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -462,6 +476,8 @@
 				DEVELOPMENT_TEAM = 57Z9KVXBQ7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "The app need access to your current position to show weather forecast";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
