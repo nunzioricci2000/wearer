@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CreationClothView: View {
+struct ClothCreationView: View {
     @State var name: String
     @Environment(\.dismiss) var dismiss
     @Environment(\.managedObjectContext) var moc
@@ -95,8 +95,8 @@ struct CreationClothView: View {
     }
 }
 
-struct CreationClothView_Previews: PreviewProvider {
+struct ClothCreationView_Previews: PreviewProvider {
     static var previews: some View {
-        CreationClothView(name: "")
+        ClothCreationView(name: "")
     }
 }

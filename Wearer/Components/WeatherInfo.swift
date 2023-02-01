@@ -9,7 +9,7 @@ import SwiftUI
 
 struct WeatherInfo: View {
     @State var response: OMResponse
-    @StateObject var viewModel: ViewModel = .init()
+    @StateObject var viewModel: MainViewViewModel = .init()
     @Namespace var namespace
     var body: some View {
         GridRow {

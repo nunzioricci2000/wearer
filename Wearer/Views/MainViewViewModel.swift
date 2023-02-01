@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 @MainActor
-class ViewModel: ObservableObject {
+class MainViewViewModel: ObservableObject {
     @Published var locationName: String?
     @Published var currentWeather: WeatherForegroud?
     @Published var currentWeatherDescription: String?

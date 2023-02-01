@@ -2,51 +2,53 @@
 //  MainView.swift
 //  Wearer
 //
-//  Created by Pietro Ciuci on 12/01/23.
+// Created by Pietro Ciuci on 12/01/23.
+// swiftlint:disable all
 //
 
 import SwiftUI
 
 struct MainView: View {
-    @StateObject var viewModel: ViewModel = .init()
-    @Namespace var namespace
-    @State var showWardrobe = false
     @FetchRequest(entity: Cloth.entity(), sortDescriptors: []) var clothes: FetchedResults<Cloth>
+    @StateObject var viewModel: MainViewViewModel = .init()
     var body: some View {
-        if showWardrobe {
-            wardrobeView
-        } else {
-            main
-        }
-    }
-    var main: some View {
-        weatherView
-            .semisheet(minHeight: 105,
-                       maxHeight: 250) {
-                wardrobe
-            }.background {
+        NavigationStack {
+            ZStack {
                 background
-            }.alert(isPresented: $viewModel.showAlert) {
-                alert
-            }
-            .onAppear {
-                Task {
-                    await viewModel.refresh()
+                    .ignoresSafeArea(.all)
+                VStack {
+                    Grid(verticalSpacing: 10) {
+                        mainWeather
+                        weatherForegrounds
+                        weatherQuote
+                    }
+                    .foregroundColor(.white)
+                    .fontDesign(.rounded)
+                    .shadow(color: .black .opacity(0.5), radius: 3, y: 4)
+                    Spacer()
+                    VStack {
+                        wardrobe
+                    }
+                }
+                .ignoresSafeArea(edges: .bottom)
+                .alert(isPresented: $viewModel.showAlert) {
+                    alert
                 }
             }
-    }
-    var weatherView: some View {
-        VStack {
-            Grid(verticalSpacing: 10) {
-                mainWeather
-                weatherForegrounds
-                weatherQuote
-            }
-            .foregroundColor(.white)
-            .fontDesign(.rounded)
-            .shadow(color: .black .opacity(0.5), radius: 3, y: 4)
         }
     }
+}
+
+extension MainView {
+    
+    var alert: Alert {
+        Alert(
+            title: Text(viewModel.alert!.title),
+            message: Text(viewModel.alert!.description),
+            dismissButton: .default(Text(viewModel.alert!.buttonText)) { viewModel.alert!.onDismiss() }
+        )
+    }
+    
     var mainWeather: some View {
         GridRow {
             VStack {
@@ -65,6 +67,7 @@ struct MainView: View {
                 .gridCellColumns(3)
         }
     }
+    
     var weatherForegrounds: some View {
         GridRow {
             ForEach(viewModel.foregrounds, id: \.?.time) { foreground in
@@ -72,6 +75,7 @@ struct MainView: View {
             }
         }
     }
+    
     var weatherQuote: some View {
         GridRow {
             Text(viewModel.currentWeatherDescription ?? "...")
@@ -79,27 +83,15 @@ struct MainView: View {
                 .padding(.vertical, 10)
         }
     }
-    var wardrobe: some View {
-        modalBackground
-            .overlay(alignment: .top) {
-                VStack {
-                    modalPiripicchio
-                    Text("Today's suggestions")
-                        .title()
-                    suggestions
-                    wardrobeButton
-                }
-            }
+    
+    var background: some View {
+        Rectangle()
+            .fill(Gradient(colors: [.blue .opacity(0.6), .blue]))
+            .ignoresSafeArea()
     }
-    var modalBackground: some View {
-            Color(.systemBackground)
-                .cornerRadius(20, corners: [.topLeft, .topRight]).ignoresSafeArea()
-    }
-    var modalPiripicchio: some View {
-        Color.secondary.cornerRadius(20).frame(width: 50, height: 5).padding(.top)
-    }
+    
     var suggestions: some View {
-        Grid(horizontalSpacing: 12, verticalSpacing: 12) {
+        Grid(horizontalSpacing: 18, verticalSpacing: 18) {
             GridRow {
                 Image("sweater")
                     .resizable()
@@ -123,12 +115,27 @@ struct MainView: View {
         }
         .padding(.horizontal, 40)
     }
+    
+    var wardrobe: some View {
+        VStack {
+            Text("Today's suggestions")
+                .title()
+            suggestions
+            wardrobeButton
+                .padding(.horizontal)
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .background(.white)
+        .cornerRadius(20, corners: [.topLeft, .topRight])
+    }
+    
     var wardrobeButton: some View {
-        Color.clear.overlay(alignment: .top) {
+        NavigationLink {
+            WardrobeView()
+        } label: {
             VStack {
                 Text("My wardrobe")
                     .title()
-                    .matchedGeometryEffect(id: "wardrobe-title", in: namespace)
                     .foregroundColor(.white)
                     .padding(.bottom, 7)
                 Spacer()
@@ -136,22 +143,12 @@ struct MainView: View {
                 ZStack {
                     Image("wardrobe")
                     Color.black.opacity(0.5)
-                }.onTapGesture {
-                    withAnimation {
-                        showWardrobe = true
-                    }
                 }
             }.cornerRadius(20)
                 .padding()
         }
     }
-    var alert: Alert {
-        Alert(
-            title: Text(viewModel.alert!.title),
-            message: Text(viewModel.alert!.description),
-            dismissButton: .default(Text(viewModel.alert!.buttonText)) { viewModel.alert!.onDismiss() }
-        )
-    }
+    
     func weatherIcon(_ foreground: WeatherForegroud) -> some View {
         VStack {
             Text(foreground.time ?? "--") // hour
@@ -164,18 +161,10 @@ struct MainView: View {
         .font(.system(size: 12, weight: .regular, design: .rounded))
         .padding(.horizontal, 8)
     }
-    var background: some View {
-        Rectangle()
-            .fill(Gradient(colors: [.blue .opacity(0.6), .blue]))
-            .ignoresSafeArea()
-    }
 }
 
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
         MainView()
-            .previewDisplayName("Main")
-        MainView().weatherView
-            .previewDisplayName("Weather")
     }
 }
