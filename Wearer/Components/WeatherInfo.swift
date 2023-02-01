@@ -8,20 +8,19 @@
 import SwiftUI
 
 struct WeatherInfo: View {
-    @State var response: OMResponse
-    @StateObject var viewModel: ViewModel = .init()
-    @Namespace var namespace
+    @State var response: OMResponse?
+    
     var body: some View {
         GridRow {
             VStack {
-                Text(viewModel.locationName ?? "Unknown location")
-                Text(viewModel.currentWeather?.temperature ?? "...")
+                Text(locationName)
+                Text(currentTemperature)
             }
             .gridCellColumns(2)
             .font(.system(size: 22, weight: .semibold, design: .rounded))
             Color.clear.gridCellUnsizedAxes([.horizontal, .vertical])
                 .gridCellColumns(1)
-            Image(viewModel.currentWeather?.icon ?? "")
+            Image(currentWeatherIcon)
                 .resizable()
                 .scaledToFit()
                 .frame(width: 100, height: 100)
@@ -29,29 +28,43 @@ struct WeatherInfo: View {
                 .gridCellColumns(3)
         }
         GridRow {
-            ForEach(viewModel.foregrounds, id: \.?.time) { foreground in
-                weatherIcon(foreground ?? .init())
+            ForEach(0..<6, id: \.self) { index in
+                WeatherDetailView(time: time(for: index), iconName: iconName(for: index), temperature: temperature(for: index))
             }
         }
         GridRow {
-            Text(viewModel.currentWeatherDescription ?? "...")
+            Text(currentWeatherDescription)
                 .gridCellColumns(6)
                 .padding(.vertical, 10)
         }
     }
 }
 
-func weatherIcon(_ foreground: WeatherForegroud) -> some View {
-    VStack {
-        Text(foreground.time ?? "--") // hour
-        Image(foreground.icon ?? "") // SF Symbol icon
-            .resizable()
-            .scaledToFit()
-            .frame(width: 26, height: 26)
-        Text(foreground.temperature ?? "--")
+extension WeatherInfo {
+    var locationName: String {
+        "Unknown location"
     }
-    .font(.system(size: 12, weight: .regular, design: .rounded))
-    .padding(.horizontal, 8)
+    var currentTemperature: String {
+        "..."
+    }
+    var currentWeatherIcon: String {
+        ""
+    }
+    var currentWeatherDescription: String {
+        "---"
+    }
+    
+    func time(for index: Int) -> String {
+        "___"
+    }
+    
+    func iconName(for index: Int) -> String {
+        "___"
+    }
+    
+    func temperature(for index: Int) -> String {
+        "___"
+    }
 }
 
 private struct WeatherInfoPreview: View {
