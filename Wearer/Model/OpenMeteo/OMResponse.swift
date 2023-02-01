@@ -10,9 +10,13 @@ import Foundation
 struct OMResponse: Decodable {
     var currentWeather: CurrentWeather
     var hourly: Hourly
+    var latitude: Double
+    var longitude: Double
     enum CodingKeys: String, CodingKey {
         case currentWeather = "current_weather"
         case hourly
+        case latitude
+        case longitude
     }
     struct Hourly: Decodable {
         var time: [Date]
