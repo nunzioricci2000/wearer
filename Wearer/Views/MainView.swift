@@ -1,15 +1,17 @@
+////
+////  MainView.swift
+////  Wearer
+////
+////  Created by Pietro Ciuci on 12/01/23.
+////
 //
-//  MainView.swift
-//  Wearer
+import SwiftUI
 //
-// Created by Pietro Ciuci on 12/01/23.
 // swiftlint:disable all
 //
 
-import SwiftUI
-
 struct MainView: View {
-    @FetchRequest(entity: Cloth.entity(), sortDescriptors: []) var clothes: FetchedResults<Cloth>
+    //@FetchRequest(entity: Cloth.entity(), sortDescriptors: []) var clothes: FetchedResults<Cloth>
     @StateObject var viewModel: MainViewViewModel = .init()
     var body: some View {
         NavigationStack {
@@ -28,6 +30,11 @@ struct MainView: View {
                     Spacer()
                     VStack {
                         wardrobe
+                    }
+                }
+                .onAppear {
+                    Task {
+                        //await viewModel.refresh()
                     }
                 }
                 .ignoresSafeArea(edges: .bottom)
@@ -125,6 +132,7 @@ extension MainView {
                 .padding(.horizontal)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
+        .frame(height: 530)
         .background(.white)
         .cornerRadius(20, corners: [.topLeft, .topRight])
     }

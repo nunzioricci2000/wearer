@@ -14,7 +14,6 @@ struct ClothDisplayer: View {
                 .resizable()
                 .scaledToFit()
                 .clipShape(RoundedRectangle(cornerRadius: 22))
-        
     }
 }
 
