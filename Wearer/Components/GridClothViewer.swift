@@ -49,7 +49,7 @@ struct GridClothViewer: View {
         }
         .padding(.top, 8.0)
         .sheet(isPresented: $isPresented) {
-            CreationClothView(name: "")
+            ClothCreationView(name: "")
         }
     }
 }
