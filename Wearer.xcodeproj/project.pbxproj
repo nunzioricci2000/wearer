@@ -8,9 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		133B90FA2987D5060077B347 /* ClothDisplayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133B90F92987D5060077B347 /* ClothDisplayer.swift */; };
+		1341629C298922A900ADA08E /* WeatherDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1341629B298922A900ADA08E /* WeatherDetail.swift */; };
 		85BCF25C298916C70097B27C /* WeatherQuote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BCF25B298916C70097B27C /* WeatherQuote.swift */; };
 		85F3983229892C4D00516353 /* Caption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F3983129892C4D00516353 /* Caption.swift */; };
-		1341629C298922A900ADA08E /* WeatherDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1341629B298922A900ADA08E /* WeatherDetail.swift */; };
 		9AB8CA9D29891FCA00E37A20 /* ClothEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB8CA9C29891FCA00E37A20 /* ClothEditorView.swift */; };
 		85F398362989310F00516353 /* WeatherInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F398352989310F00516353 /* WeatherInfo.swift */; };
 		9AB8CA9F2989203800E37A20 /* WarmnessPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB8CA9E2989203800E37A20 /* WarmnessPicker.swift */; };
@@ -29,7 +29,6 @@
 		CD3AFD2D29758E0D0097EF3B /* Title.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3AFD2C29758E0D0097EF3B /* Title.swift */; };
 		CD3B450C29799849007740B2 /* OpenMeteo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3B450B29799849007740B2 /* OpenMeteo.swift */; };
 		CD6DB056298306A600415415 /* PhotosTaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6DB055298306A600415415 /* PhotosTaker.swift */; };
-		CDA111FD297A9C08008B3253 /* OMRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA111FC297A9C08008B3253 /* OMRequest.swift */; };
 		CDA111FF297AE7A9008B3253 /* LocationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA111FE297AE7A9008B3253 /* LocationHandler.swift */; };
 		CDA11201297E8709008B3253 /* WardrobeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA11200297E8709008B3253 /* WardrobeView.swift */; };
 		CDEDCC0F298288C50091FC08 /* HClothViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEDCC0B298288C50091FC08 /* HClothViewer.swift */; };
@@ -44,9 +43,9 @@
 
 /* Begin PBXFileReference section */
 		133B90F92987D5060077B347 /* ClothDisplayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothDisplayer.swift; sourceTree = "<group>"; };
+		1341629B298922A900ADA08E /* WeatherDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDetail.swift; sourceTree = "<group>"; };
 		85BCF25B298916C70097B27C /* WeatherQuote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherQuote.swift; sourceTree = "<group>"; };
 		85F3983129892C4D00516353 /* Caption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Caption.swift; sourceTree = "<group>"; };
-		1341629B298922A900ADA08E /* WeatherDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDetail.swift; sourceTree = "<group>"; };
 		9AB8CA9C29891FCA00E37A20 /* ClothEditorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClothEditorView.swift; sourceTree = "<group>"; };
 		85F398352989310F00516353 /* WeatherInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherInfo.swift; sourceTree = "<group>"; };
 		9AB8CA9E2989203800E37A20 /* WarmnessPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WarmnessPicker.swift; sourceTree = "<group>"; };
@@ -66,7 +65,6 @@
 		CD3AFD2C29758E0D0097EF3B /* Title.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Title.swift; sourceTree = "<group>"; };
 		CD3B450B29799849007740B2 /* OpenMeteo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenMeteo.swift; sourceTree = "<group>"; };
 		CD6DB055298306A600415415 /* PhotosTaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosTaker.swift; sourceTree = "<group>"; };
-		CDA111FC297A9C08008B3253 /* OMRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OMRequest.swift; sourceTree = "<group>"; };
 		CDA111FE297AE7A9008B3253 /* LocationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationHandler.swift; sourceTree = "<group>"; };
 		CDA11200297E8709008B3253 /* WardrobeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardrobeView.swift; sourceTree = "<group>"; };
 		CDEDCC0B298288C50091FC08 /* HClothViewer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HClothViewer.swift; sourceTree = "<group>"; };
@@ -177,7 +175,6 @@
 			isa = PBXGroup;
 			children = (
 				CD3AE4E129892DDE007F5360 /* OMObjects.swift */,
-				CDA111FC297A9C08008B3253 /* OMRequest.swift */,
 				CD38C0332975F63D005A4769 /* OMResponse.swift */,
 				CD3B450B29799849007740B2 /* OpenMeteo.swift */,
 			);
@@ -315,7 +312,6 @@
 				CDEDCC0F298288C50091FC08 /* HClothViewer.swift in Sources */,
 				CDEDCC1F298288DF0091FC08 /* ClothesDataModel.xcdatamodeld in Sources */,
 				CDEDCC20298288DF0091FC08 /* DataController.swift in Sources */,
-				CDA111FD297A9C08008B3253 /* OMRequest.swift in Sources */,
 				CD38C0342975F63D005A4769 /* OMResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
