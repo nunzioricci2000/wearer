@@ -14,7 +14,7 @@ struct WardrobeView: View {
                 Grid(horizontalSpacing: 25, verticalSpacing: 25) {
                     GridRow {
                         NavigationLink {
-                            ClothListView(category: "Coats")
+                            ClothListView("Coats")
                         } label: {
                             Image("CoatPlaceholder")
                                 .resizable()
@@ -36,7 +36,7 @@ struct WardrobeView: View {
                                 )
                         }
                         NavigationLink {
-                            ClothListView(category: "Shirts")
+                            ClothListView("Shirts")
                         } label: {
                             Image("ShirtPlaceholder")
                                 .resizable()
@@ -60,7 +60,7 @@ struct WardrobeView: View {
                     }
                     GridRow {
                         NavigationLink {
-                            ClothListView(category: "Pants")
+                            ClothListView("Pants")
                         } label: {
                             Image("PantsPlaceholder")
                                 .resizable()
@@ -82,7 +82,7 @@ struct WardrobeView: View {
                                 )
                         }
                         NavigationLink {
-                            ClothListView(category: "Shoes")
+                            ClothListView("Shoes")
                         } label: {
                             Image("ShoesPlaceholder")
                                 .resizable()
