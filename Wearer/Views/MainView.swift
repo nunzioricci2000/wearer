@@ -21,12 +21,16 @@ struct MainView: View {
                 VStack {
                     Grid(verticalSpacing: 10) {
                         mainWeather
+                            .padding(.top)
                         weatherForegrounds
+                            .padding(.top)
                         weatherQuote
+                            .padding(.top, 5)
                     }
                     .foregroundColor(.white)
                     .fontDesign(.rounded)
                     .shadow(color: .black .opacity(0.5), radius: 3, y: 4)
+                    .padding(.top, 20)
                     Spacer()
                     VStack {
                         wardrobe
@@ -34,7 +38,7 @@ struct MainView: View {
                 }
                 .onAppear {
                     Task {
-                        //await viewModel.refresh()
+                        await viewModel.refresh()
                     }
                 }
                 .ignoresSafeArea(edges: .bottom)
@@ -127,13 +131,14 @@ extension MainView {
         VStack {
             Text("Today's suggestions")
                 .title()
+                .padding()
             suggestions
             wardrobeButton
-                .padding(.horizontal)
+                .padding([.horizontal, .bottom])
         }
         .frame(maxWidth: .infinity, alignment: .leading)
-        .frame(height: 530)
-        .background(.white)
+        //.frame(height: 540)
+        .background(Color(UIColor.systemBackground))
         .cornerRadius(20, corners: [.topLeft, .topRight])
     }
     
