@@ -8,12 +8,13 @@
 import SwiftUI
 
 struct ClothCreationView: View {
-    @State var name: String
+//    @State var name: String
     @Environment(\.dismiss) var dismiss
     @Environment(\.managedObjectContext) var moc
     @State var image: UIImage?
-    @State var type: String = "Jeans"
+    @State var color: String = "Black"
     @State var warmness: Int = 1
+    @State var type: String
     let colors: [String] = ["Black", "Brown", "Yellow", "White", "Blue", "Green", "Orange", "Red", "Pink"]
     var body: some View {
         NavigationStack {
@@ -25,7 +26,6 @@ struct ClothCreationView: View {
                         Image(uiImage: image ?? UIImage(imageLiteralResourceName: "ClothPlaceholder"))
                             .resizable()
                             .aspectRatio(contentMode: .fill)
-                            .padding(.top, 4.0)
                             .frame(width: 165, height: 165)
                             .clipShape(Rectangle())
                             .cornerRadius(30)
@@ -34,19 +34,10 @@ struct ClothCreationView: View {
                             .aspectRatio(contentMode: .fill)
                             .padding(.top, 150.0)
                             .frame(width: 60, height: 60)
-                            .navigationTitle("New Cloth")
                     }
                 }
                 .padding()
-//                HStack {
-//                    TextField("Name", text: $name)
-//                        .padding()
-//                }
-//                .frame(width: 400, height: 50)
-//                .background(Color(.systemGray6))
-//                .cornerRadius(14)
-//                .padding(.top, 40.0)
-                Picker(selection: $type, label: Text("Category")) {
+                Picker(selection: $color, label: Text("Color")) {
                     ForEach(colors, id: \.self) { color in
                         HStack {
                             Circle()
@@ -58,17 +49,23 @@ struct ClothCreationView: View {
                 }
                 .pickerStyle(.navigationLink)
                 .padding()
-                .frame(width: 400, height: 50)
-                .background(Color(.systemGray6))
+                .frame(width: 360, height: 50)
+                .background(Color(.systemGray5))
                 .cornerRadius(14)
                 .padding(.top)
-                WarmnessPicker(rating: $warmness, isEditing: .constant(true))
-                    .padding(.top)
+                HStack(spacing: 50) {
+                    Text("Warmness")
+                    WarmnessPicker(rating: $warmness, isEditing: .constant(true))
+                }
+                .frame(width: 360, height: 45)
+                .background(Color(.systemGray5))
+                .cornerRadius(14)
                 Spacer()
                 Button {
                     let cloth = Cloth( context: moc)
                     cloth.picture = image?.pngData()
                     cloth.type = type
+                    cloth.color = color
                     cloth.warmness = Int16(warmness)
                     try? moc.save()
                     dismiss()
@@ -77,8 +74,8 @@ struct ClothCreationView: View {
                     .font(.title2)
                     .bold()
                     .foregroundColor(.blue)
-                    .frame(width: 400, height: 70)
-                    .background(Color(.systemGray6))
+                    .frame(width: 300, height: 55)
+                    .background(Color(.systemGray5))
                     .cornerRadius(20)
                 }
             }
@@ -90,6 +87,8 @@ struct ClothCreationView: View {
                 }
                 .buttonStyle(PlainButtonStyle())
             }
+            .navigationTitle("New Cloth")
+            .navigationBarTitleDisplayMode(.inline)
             .padding()
         }
     }
@@ -97,6 +96,6 @@ struct ClothCreationView: View {
 
 struct ClothCreationView_Previews: PreviewProvider {
     static var previews: some View {
-        ClothCreationView(name: "")
+        ClothCreationView(type: "Coats")
     }
 }
