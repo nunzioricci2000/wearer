@@ -34,7 +34,7 @@ struct ClothEditorView: View {
                     }
                     .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
                     Section(header: Text("Color")) {
-                        Text(type)
+                        Text(cloth.color ?? "Black")
                     }
                     Section(header: Text("Warmness")) {
                         WarmnessPicker(rating: $warmIndex, isEditing: $isEditing)
@@ -116,6 +116,9 @@ struct ClothEditorView: View {
             }
             .sheet(isPresented: $isPhotoLibrary) {
                 ImagePickerView(selectedImage: $image, sourceType: .photoLibrary)
+            }
+            .onAppear {
+                image = UIImage(data: cloth.picture ?? UIImage(imageLiteralResourceName: "ClothPlaceholder").pngData()!)
             }
         }
     }
