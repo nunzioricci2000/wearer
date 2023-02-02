@@ -18,7 +18,6 @@ struct ClothDisplayer: View {
 }
 
 
-
 struct ClothDisplayer_Previews: PreviewProvider {
     static var previews: some View {
         ClothDisplayer(picture: UIImage(named: "jeans")!)

@@ -32,11 +32,9 @@ struct ClothListView: View {
                     NavigationLink {
                         ClothEditorView(cloth: cloth, type: cloth.type!, warmIndex: Int(cloth.warmness))
                     } label: {
-                        ClothDisplayer(picture: UIImage(data: cloth.picture ?? imagePlaceholder!) ?? UIImage(imageLiteralResourceName: "ClothPlaceholder")) // UIImage(data: cloth.picture!  ?? imagePlaceholder!)
+                        ClothDisplayer(picture: UIImage(data: cloth.picture ?? imagePlaceholder!) ?? UIImage(imageLiteralResourceName: "ClothPlaceholder"))
                             .padding()
                     }
-                    
-                    //                        .sheet(isPresented: $isPresented, content: {ClothCreationView(type: cloth.type ?? "Coats")})
                 }
             }
         }

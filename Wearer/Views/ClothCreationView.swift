@@ -8,19 +8,21 @@
 import SwiftUI
 
 struct ClothCreationView: View {
-//    @State var name: String
     @Environment(\.dismiss) var dismiss
     @Environment(\.managedObjectContext) var moc
     @State var image: UIImage?
     @State var color: String = "Black"
     @State var warmness: Int = 1
     @State var type: String
+    @State var isPresentingPhotoPicker = false
+    @State var isPhotoLibrary = false
+    @State var isCamera = false
     let colors: [String] = ["Black", "Brown", "Yellow", "White", "Blue", "Green", "Orange", "Red", "Pink"]
     var body: some View {
         NavigationStack {
             VStack {
-                NavigationLink {
-                    CameraView(selectedImage: $image)
+                Button {
+                    isPresentingPhotoPicker.toggle()
                 } label: {
                     ZStack {
                         Image(uiImage: image ?? UIImage(imageLiteralResourceName: "ClothPlaceholder"))
@@ -70,13 +72,13 @@ struct ClothCreationView: View {
                     try? moc.save()
                     dismiss()
                 }label: {
-                Text("Create")
-                    .font(.title2)
-                    .bold()
-                    .foregroundColor(.blue)
-                    .frame(width: 300, height: 55)
-                    .background(Color(.systemGray5))
-                    .cornerRadius(20)
+                    Text("Create")
+                        .font(.title2)
+                        .bold()
+                        .foregroundColor(.blue)
+                        .frame(width: 300, height: 55)
+                        .background(Color(.systemGray5))
+                        .cornerRadius(20)
                 }
             }
             .toolbar {
@@ -86,6 +88,20 @@ struct ClothCreationView: View {
                     Image(systemName: "xmark.circle.fill")
                 }
                 .buttonStyle(PlainButtonStyle())
+            }
+            .confirmationDialog("Change item", isPresented: $isPresentingPhotoPicker) {
+                Button("Camera") {
+                    isCamera.toggle()
+                }
+                Button("Photo Library") {
+                    isPhotoLibrary.toggle()
+                }
+            }
+            .fullScreenCover(isPresented: $isCamera) {
+                ImagePickerView(selectedImage: $image, sourceType: .camera)
+            }
+            .sheet(isPresented: $isPhotoLibrary) {
+                ImagePickerView(selectedImage: $image, sourceType: .photoLibrary)
             }
             .navigationTitle("New Cloth")
             .navigationBarTitleDisplayMode(.inline)

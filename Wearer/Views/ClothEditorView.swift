@@ -68,10 +68,15 @@ struct ClothEditorView: View {
                     Section {
                         Picker(selection: $type, label: Text("Color")) {
                             ForEach(colors, id: \.self) { color in
-                                Text(color)
+                                HStack {
+                                    Circle()
+                                        .fill(Color(color))
+                                        .frame(width: 15)
+                                    Text(color)
+                                }
                             }
                         }
-                        .pickerStyle(.navigationLink)
+                        .pickerStyle(MenuPickerStyle())
                     }
                     Section(header: Text("Warmness")) {
                         WarmnessPicker(rating: $warmIndex, isEditing: $isEditing)
@@ -145,3 +150,15 @@ extension Image {
         }
     }
 }
+
+//struct ClothEditorView_Previews: PreviewProvider {
+//    @FetchRequest(
+//        sortDescriptors: [],
+//        predicate: NSPredicate(format: "type LIKE[cd] %@", type)
+//    ) var clothes: FetchedResults<Cloth>
+//    static var previews: some View {
+//        ForEach(clothes) { cloth in
+//            ClothEditorView(cloth: cloth, type: "Coats", warmIndex: 5)
+//        }
+//    }
+//}
