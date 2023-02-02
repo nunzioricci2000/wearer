@@ -17,19 +17,26 @@ struct ClothListView: View {
     
     init(_ type: String) {
         _clothes = FetchRequest(sortDescriptors: [],
-            predicate: NSPredicate(format: "type LIKE[cd] %@", type))
+                                predicate: NSPredicate(format: "type LIKE[cd] %@", type))
         _type = State(initialValue: type)
     }
     
     let columns = [
-            GridItem(.adaptive(minimum: 80))
-        ]
+        GridItem(.adaptive(minimum: 150))
+    ]
     
     var body: some View {
         ScrollView(showsIndicators: false) {
             LazyVGrid(columns: columns) {
                 ForEach(clothes) { cloth in
-                    ClothDisplayer(picture: UIImage(data: cloth.picture!) ?? UIImage(imageLiteralResourceName: "ClothPlaceholder")) // UIImage(data: cloth.picture!  ?? imagePlaceholder!)
+                    NavigationLink {
+                        ClothEditorView(cloth: cloth, type: cloth.type!, warmIndex: Int(cloth.warmness))
+                    } label: {
+                        ClothDisplayer(picture: UIImage(data: cloth.picture ?? imagePlaceholder!) ?? UIImage(imageLiteralResourceName: "ClothPlaceholder")) // UIImage(data: cloth.picture!  ?? imagePlaceholder!)
+                            .padding()
+                    }
+                    
+                    //                        .sheet(isPresented: $isPresented, content: {ClothCreationView(type: cloth.type ?? "Coats")})
                 }
             }
         }
@@ -44,7 +51,9 @@ struct ClothListView: View {
                 .buttonStyle(PlainButtonStyle())
             })
         }
-        .sheet(isPresented: $isPresented, content: {ClothCreationView(name: "Test")})
+        .sheet(isPresented: $isPresented) {
+            ClothCreationView(type: type)
+        }
     }
 }
 struct ClothListView_Previews: PreviewProvider {
