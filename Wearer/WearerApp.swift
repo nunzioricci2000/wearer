@@ -14,6 +14,7 @@ struct WearerApp: App {
         WindowGroup {
             ContentView()
                 .environment(\.managedObjectContext, dataController.container.viewContext)
+                //.preferredColorScheme(.light)
         }
     }
 }
