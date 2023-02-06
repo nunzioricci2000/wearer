@@ -6,13 +6,21 @@
 ////
 //
 import SwiftUI
+import CoreData
 //
 // swiftlint:disable all
 //
 
 struct MainView: View {
-    //@FetchRequest(entity: Cloth.entity(), sortDescriptors: []) var clothes: FetchedResults<Cloth>
+    @FetchRequest(sortDescriptors: []) var clothes: FetchedResults<Cloth>
     @StateObject var viewModel: MainViewViewModel = .init()
+    let imagePlaceholder = UIImage(imageLiteralResourceName: "ErrorIcon").pngData()
+    @State var coat: Cloth?
+    @State var shirt: Cloth?
+    @State var pants: Cloth?
+    @State var shoes: Cloth?
+    @Environment(\.managedObjectContext) var moc
+    
     var body: some View {
         NavigationStack {
             ZStack {
@@ -104,27 +112,24 @@ extension MainView {
     var suggestions: some View {
         Grid(horizontalSpacing: 18, verticalSpacing: 18) {
             GridRow {
-                Image("sweater")
-                    .resizable()
-                    .scaledToFill()
-                    .cornerRadius(22)
-                Image("t-shirt")
-                    .resizable()
-                    .scaledToFill()
-                    .cornerRadius(22)
+                ClothDisplayer(picture: UIImage(data: coat?.picture ?? imagePlaceholder!) ?? UIImage(imageLiteralResourceName: "jeans"))
+                ClothDisplayer(picture: UIImage(data: shirt?.picture ?? imagePlaceholder!)
+                    ?? UIImage(imageLiteralResourceName: "t-shirts"))
             }
             GridRow {
-                Image("jeans")
-                    .resizable()
-                    .scaledToFill()
-                    .cornerRadius(22)
-                Image("shoes")
-                    .resizable()
-                    .scaledToFill()
-                    .cornerRadius(22)
+                ClothDisplayer(picture: UIImage(data: pants?.picture ?? imagePlaceholder!)
+                    ?? UIImage(imageLiteralResourceName: "jeans"))
+                ClothDisplayer(picture: UIImage(data: shoes?.picture ?? imagePlaceholder!)
+                    ?? UIImage(imageLiteralResourceName: "shoes"))
             }
         }
         .padding(.horizontal, 40)
+        .onAppear {
+            coat = getSuggestedCloth(temp: viewModel.currentWeather?.temperature, type: "Coats")
+            shirt = getSuggestedCloth(temp: viewModel.currentWeather?.temperature, type: "Shirts")
+            pants = getSuggestedCloth(temp: viewModel.currentWeather?.temperature, type: "Pants")
+            shoes = getSuggestedCloth(temp: viewModel.currentWeather?.temperature, type: "Shoes")
+        }
     }
     
     var wardrobe: some View {
@@ -137,7 +142,6 @@ extension MainView {
                 .padding([.horizontal, .bottom])
         }
         .frame(maxWidth: .infinity, alignment: .leading)
-        //.frame(height: 540)
         .background(Color(UIColor.systemBackground))
         .cornerRadius(20, corners: [.topLeft, .topRight])
     }
@@ -162,6 +166,8 @@ extension MainView {
         }
     }
     
+    // MARK: Functions
+    
     func weatherIcon(_ foreground: WeatherForegroud) -> some View {
         VStack {
             Text(foreground.time ?? "--") // hour
@@ -174,6 +180,50 @@ extension MainView {
         .font(.system(size: 12, weight: .regular, design: .rounded))
         .padding(.horizontal, 8)
     }
+    
+    func filterClothesByTemp(temp: Double) -> [Cloth] {
+        let warmIndex = convertIndex(for: temp)
+        var tempFilteredClothes: [Cloth] = []
+        for cloth in self.clothes {
+            if cloth.warmness == warmIndex {
+                tempFilteredClothes.append(cloth)
+            }
+        }
+        return tempFilteredClothes
+    }
+    
+    func filterClothesByType(clothes: [Cloth], type: String) -> [Cloth] {
+        var filteredClothes: [Cloth] = []
+        for cloth in clothes {
+            if cloth.type == type {
+                filteredClothes.append(cloth)
+            }
+        }
+        return filteredClothes
+    }
+    
+    func convertIndex(for temp: Double) -> Int {
+        switch(temp) {
+        case let x where x < 0.0:
+            return 5
+        case let x where x >= 0.0 && x < 10.0:
+            return 4
+        case let x where x >= 10.0 && x < 20.0:
+            return 3
+        case let x where x >= 20.0 && x < 30.0:
+            return 2
+        case let x where x >= 30.0:
+            return 1
+        default:
+            return 3 // medium value
+        }
+    }
+    
+    func getSuggestedCloth(temp: String?, type: String) -> Cloth? {
+        let tempFilteredClothes = filterClothesByTemp(temp: Double(viewModel.currentWeather?.temperature ?? "20.0") ?? 20.0)
+        return filterClothesByType(clothes: tempFilteredClothes, type: type).randomElement()
+    }
+    
 }
 
 struct MainView_Previews: PreviewProvider {
