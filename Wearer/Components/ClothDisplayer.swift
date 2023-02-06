@@ -12,7 +12,8 @@ struct ClothDisplayer: View {
     var body: some View {
         Image(uiImage: picture)
                 .resizable()
-                .scaledToFit()
+                .scaledToFill()
+                .frame(width: 160, height: 160)
                 .clipShape(RoundedRectangle(cornerRadius: 22))
     }
 }

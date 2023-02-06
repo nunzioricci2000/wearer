@@ -54,6 +54,7 @@ struct ClothListView: View {
         }
     }
 }
+
 struct ClothListView_Previews: PreviewProvider {
     static var previews: some View {
         ClothListView("Coats")
