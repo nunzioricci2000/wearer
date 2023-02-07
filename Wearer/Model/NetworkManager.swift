@@ -13,6 +13,10 @@ class NetworkManager {
     private init () {}
     
     /// return a data from given link
+    ///
+    /// - Parameters:
+    ///   - url: string of the url
+    /// - Returns: A tuple containing data and response from the server.
     func get(url: String) async throws -> (Data, URLResponse) {
         guard let url = URL(string: url) else { throw NetworkError.invalidURL(url: url) }
         let request = URLRequest(url: url)

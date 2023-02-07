@@ -13,4 +13,13 @@ service, so we decided to adopt [open-meteo.com](https://open-meteo.com/).
 
 ### NetworkManager
 
-We created a class named NetworkManager that provides the ``get`` method
+We created a class named NetworkManager that provides the ``get`` async method that return 
+data from a given url:
+```
+/// return a data from given link
+///
+/// - Parameters:
+///   - url: string of the url
+/// - Returns: A tuple containing data and response from the server.
+func get(url: String) async throws -> (Data, URLResponse)
+```
