@@ -13,8 +13,9 @@ service, so we decided to adopt [open-meteo.com](https://open-meteo.com/).
 
 ### NetworkManager
 
-We created a class named NetworkManager that provides the ``get`` async method that return 
+We created a class named NetworkManager that provides the ``get`` async method that returns
 data from a given url:
+
 ```
 /// return a data from given link
 ///
@@ -22,4 +23,19 @@ data from a given url:
 ///   - url: string of the url
 /// - Returns: A tuple containing data and response from the server.
 func get(url: String) async throws -> (Data, URLResponse)
+```
+
+### OpenMeteo
+
+OpenMeteo class provides the ``forecast`` function that takese coordinates and retrives weather
+informetions in a OMResponse instace:
+
+```
+/// Retrives weather informations from Open Meteo
+///
+///  - Parameters:
+///    - latitude: latitude of forecast data
+///    - longitude: longitude of forecast data
+///  - Returns: An instance of OMResponse containing all weather data.
+func forecast(latitude: Double, longitude: Double) async throws -> OMResponse
 ```
