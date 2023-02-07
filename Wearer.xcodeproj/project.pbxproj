@@ -28,6 +28,8 @@
 		CD3AE4E229892DDE007F5360 /* OMObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3AE4E129892DDE007F5360 /* OMObjects.swift */; };
 		CD3AFD2D29758E0D0097EF3B /* Title.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3AFD2C29758E0D0097EF3B /* Title.swift */; };
 		CD3B450C29799849007740B2 /* OpenMeteo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3B450B29799849007740B2 /* OpenMeteo.swift */; };
+		CD45953F29924E4100C8BA84 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = CD45953E29924E4100C8BA84 /* README.md */; };
+		CD45954129924E4D00C8BA84 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = CD45954029924E4D00C8BA84 /* LICENSE */; };
 		CD6DB056298306A600415415 /* PhotosTaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6DB055298306A600415415 /* PhotosTaker.swift */; };
 		CDA111FF297AE7A9008B3253 /* LocationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA111FE297AE7A9008B3253 /* LocationHandler.swift */; };
 		CDA11201297E8709008B3253 /* WardrobeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA11200297E8709008B3253 /* WardrobeView.swift */; };
@@ -60,6 +62,8 @@
 		CD3AE4E129892DDE007F5360 /* OMObjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OMObjects.swift; sourceTree = "<group>"; };
 		CD3AFD2C29758E0D0097EF3B /* Title.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Title.swift; sourceTree = "<group>"; };
 		CD3B450B29799849007740B2 /* OpenMeteo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenMeteo.swift; sourceTree = "<group>"; };
+		CD45953E29924E4100C8BA84 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		CD45954029924E4D00C8BA84 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		CD6DB055298306A600415415 /* PhotosTaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosTaker.swift; sourceTree = "<group>"; };
 		CDA111FE297AE7A9008B3253 /* LocationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationHandler.swift; sourceTree = "<group>"; };
 		CDA11200297E8709008B3253 /* WardrobeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WardrobeView.swift; sourceTree = "<group>"; };
@@ -83,6 +87,8 @@
 		CD0103B4296FF746003CB3A1 = {
 			isa = PBXGroup;
 			children = (
+				CD45954029924E4D00C8BA84 /* LICENSE */,
+				CD45953E29924E4100C8BA84 /* README.md */,
 				CD0103BF296FF746003CB3A1 /* Wearer */,
 				CD0103BE296FF746003CB3A1 /* Products */,
 			);
@@ -238,7 +244,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD45953F29924E4100C8BA84 /* README.md in Resources */,
 				CD0103C8296FF748003CB3A1 /* Preview Assets.xcassets in Resources */,
+				CD45954129924E4D00C8BA84 /* LICENSE in Resources */,
 				CD0103C5296FF748003CB3A1 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -429,6 +437,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "The app need access to your current position to show weather forecast";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -461,6 +470,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "The app need access to your current position to show weather forecast";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
