@@ -15,6 +15,7 @@ struct MainView: View {
     @FetchRequest(sortDescriptors: []) var clothes: FetchedResults<Cloth>
     @StateObject var viewModel: MainViewViewModel = .init()
     let imagePlaceholder = UIImage(imageLiteralResourceName: "ErrorIcon").pngData()
+    @State var temperature: String?
     @State var coat: Cloth?
     @State var shirt: Cloth?
     @State var pants: Cloth?
@@ -42,11 +43,6 @@ struct MainView: View {
                     Spacer()
                     VStack {
                         wardrobe
-                    }
-                }
-                .onAppear {
-                    Task {
-                        await viewModel.refresh()
                     }
                 }
                 .ignoresSafeArea(edges: .bottom)
@@ -114,21 +110,27 @@ extension MainView {
             GridRow {
                 ClothDisplayer(picture: UIImage(data: coat?.picture ?? imagePlaceholder!) ?? UIImage(imageLiteralResourceName: "jeans"))
                 ClothDisplayer(picture: UIImage(data: shirt?.picture ?? imagePlaceholder!)
-                    ?? UIImage(imageLiteralResourceName: "t-shirts"))
+                               ?? UIImage(imageLiteralResourceName: "t-shirts"))
             }
             GridRow {
                 ClothDisplayer(picture: UIImage(data: pants?.picture ?? imagePlaceholder!)
-                    ?? UIImage(imageLiteralResourceName: "jeans"))
+                               ?? UIImage(imageLiteralResourceName: "jeans"))
                 ClothDisplayer(picture: UIImage(data: shoes?.picture ?? imagePlaceholder!)
-                    ?? UIImage(imageLiteralResourceName: "shoes"))
+                               ?? UIImage(imageLiteralResourceName: "shoes"))
             }
         }
         .padding(.horizontal, 40)
         .onAppear {
-            coat = getSuggestedCloth(temp: viewModel.currentWeather?.temperature, type: "Coats")
-            shirt = getSuggestedCloth(temp: viewModel.currentWeather?.temperature, type: "Shirts")
-            pants = getSuggestedCloth(temp: viewModel.currentWeather?.temperature, type: "Pants")
-            shoes = getSuggestedCloth(temp: viewModel.currentWeather?.temperature, type: "Shoes")
+            Task {
+                await viewModel.refresh()
+                temperature = viewModel.currentWeather?.temperature ?? "5000"
+                let removeCharacters: Set<Character> = ["C", "°"]
+                temperature?.removeAll(where: { removeCharacters.contains($0) } )
+                coat = getSuggestedCloth(temp: temperature ?? "45", type: "Coats")
+                shirt = getSuggestedCloth(temp: temperature ?? "45", type: "Shirts")
+                pants = getSuggestedCloth(temp: temperature ?? "45", type: "Pants")
+                shoes = getSuggestedCloth(temp: temperature ?? "45", type: "Shoes")
+            }
         }
     }
     
@@ -219,8 +221,9 @@ extension MainView {
         }
     }
     
-    func getSuggestedCloth(temp: String?, type: String) -> Cloth? {
-        let tempFilteredClothes = filterClothesByTemp(temp: Double(viewModel.currentWeather?.temperature ?? "20.0") ?? 20.0)
+    func getSuggestedCloth(temp: String, type: String) -> Cloth? {
+        let temperature = Double(temp)
+        let tempFilteredClothes = filterClothesByTemp(temp: temperature ?? 35)
         return filterClothesByType(clothes: tempFilteredClothes, type: type).randomElement()
     }
     
