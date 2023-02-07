@@ -39,3 +39,31 @@ informetions in a OMResponse instace:
 ///  - Returns: An instance of OMResponse containing all weather data.
 func forecast(latitude: Double, longitude: Double) async throws -> OMResponse
 ```
+
+### LocationHandler
+
+LocationHandler retrives actual location name and coordinates using **CoreLocation**
+```
+    /// Return current location
+    func getLocation() async throws -> CLLocation {
+        if let location = manager.location {
+            return location
+        }
+        throw LocationError.nilLocation
+    }
+    
+    /// Return current location name
+    func getLocationName(of location: CLLocation?) async throws -> String {
+        guard let location = location else {
+            return try await getLocationName(of: getLocation())
+        }
+        let placemarks = try await geocoder.reverseGeocodeLocation(location)
+        guard let placemark = placemarks.first else {
+            throw LocationError.nonExistentPlacemark
+        }
+        guard let locationName = placemark.locality else {
+            throw LocationError.unnamedLocality
+        }
+        return locationName
+    }
+``
