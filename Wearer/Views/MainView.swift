@@ -20,7 +20,7 @@ struct MainView: View {
     @State var shirt: Cloth?
     @State var pants: Cloth?
     @State var shoes: Cloth?
-    @Environment(\.managedObjectContext) var moc
+    @State var isLoading = true
     
     var body: some View {
         NavigationStack {
@@ -48,6 +48,21 @@ struct MainView: View {
                 .ignoresSafeArea(edges: .bottom)
                 .alert(isPresented: $viewModel.showAlert) {
                     alert
+                }
+                .onAppear {
+                    Task {
+                        await viewModel.refresh()
+                        if (isLoading == true) {
+                            temperature = viewModel.currentWeather?.temperature ?? "5000"
+                            let removeCharacters: Set<Character> = ["C", "°"]
+                            temperature?.removeAll(where: { removeCharacters.contains($0) } )
+                            coat = getSuggestedCloth(temp: temperature ?? "45", type: "Coats")
+                            shirt = getSuggestedCloth(temp: temperature ?? "45", type: "Shirts")
+                            pants = getSuggestedCloth(temp: temperature ?? "45", type: "Pants")
+                            shoes = getSuggestedCloth(temp: temperature ?? "45", type: "Shoes")
+                        }
+                        isLoading = false
+                    }
                 }
             }
         }
@@ -105,40 +120,74 @@ extension MainView {
             .ignoresSafeArea()
     }
     
+    @ViewBuilder
     var suggestions: some View {
-        Grid(horizontalSpacing: 18, verticalSpacing: 18) {
-            GridRow {
-                ClothDisplayer(picture: UIImage(data: coat?.picture ?? imagePlaceholder!) ?? UIImage(imageLiteralResourceName: "jeans"))
-                ClothDisplayer(picture: UIImage(data: shirt?.picture ?? imagePlaceholder!)
-                               ?? UIImage(imageLiteralResourceName: "t-shirts"))
-            }
-            GridRow {
-                ClothDisplayer(picture: UIImage(data: pants?.picture ?? imagePlaceholder!)
-                               ?? UIImage(imageLiteralResourceName: "jeans"))
-                ClothDisplayer(picture: UIImage(data: shoes?.picture ?? imagePlaceholder!)
-                               ?? UIImage(imageLiteralResourceName: "shoes"))
+        if isLoading == true {
+            Grid(horizontalSpacing: 18, verticalSpacing: 18) {
+                GridRow {
+                    ProgressView()
+                        .frame(width: 160, height: 160)
+                        .background(Color(.systemGray6))
+                        .cornerRadius(22)
+                    ProgressView()
+                        .frame(width: 160, height: 160)
+                        .background(Color(.systemGray6))
+                        .cornerRadius(22)
+                }
+                GridRow {
+                    ProgressView()
+                        .frame(width: 160, height: 160)
+                        .background(Color(.systemGray6))
+                        .cornerRadius(22)
+                    ProgressView()
+                        .frame(width: 160, height: 160)
+                        .background(Color(.systemGray6))
+                        .cornerRadius(22)
+                }
             }
         }
-        .padding(.horizontal, 40)
-        .onAppear {
-            Task {
-                await viewModel.refresh()
-                temperature = viewModel.currentWeather?.temperature ?? "5000"
-                let removeCharacters: Set<Character> = ["C", "°"]
-                temperature?.removeAll(where: { removeCharacters.contains($0) } )
-                coat = getSuggestedCloth(temp: temperature ?? "45", type: "Coats")
-                shirt = getSuggestedCloth(temp: temperature ?? "45", type: "Shirts")
-                pants = getSuggestedCloth(temp: temperature ?? "45", type: "Pants")
-                shoes = getSuggestedCloth(temp: temperature ?? "45", type: "Shoes")
+        else {
+            Grid(horizontalSpacing: 18, verticalSpacing: 18) {
+                GridRow {
+                    ClothDisplayer(picture: UIImage(data: coat?.picture ?? imagePlaceholder!) ?? UIImage(imageLiteralResourceName: "jeans"))
+                    ClothDisplayer(picture: UIImage(data: shirt?.picture ?? imagePlaceholder!)
+                                   ?? UIImage(imageLiteralResourceName: "t-shirts"))
+                }
+                GridRow {
+                    ClothDisplayer(picture: UIImage(data: pants?.picture ?? imagePlaceholder!)
+                                   ?? UIImage(imageLiteralResourceName: "jeans"))
+                    ClothDisplayer(picture: UIImage(data: shoes?.picture ?? imagePlaceholder!)
+                                   ?? UIImage(imageLiteralResourceName: "shoes"))
+                }
             }
+            .padding(.horizontal, 40)
         }
     }
     
     var wardrobe: some View {
         VStack {
-            Text("Today's suggestions")
-                .title()
-                .padding()
+            HStack {
+                Text("Today's suggestions")
+                    .title()
+                Spacer()
+                Button {
+                    Task {
+                        await viewModel.refresh()
+                        temperature = viewModel.currentWeather?.temperature ?? "5000"
+                        let removeCharacters: Set<Character> = ["C", "°"]
+                        temperature?.removeAll(where: { removeCharacters.contains($0) } )
+                        coat = getSuggestedCloth(temp: temperature ?? "45", type: "Coats")
+                        shirt = getSuggestedCloth(temp: temperature ?? "45", type: "Shirts")
+                        pants = getSuggestedCloth(temp: temperature ?? "45", type: "Pants")
+                        shoes = getSuggestedCloth(temp: temperature ?? "45", type: "Shoes")
+                    }
+                } label: {
+                    Image(systemName: "arrow.counterclockwise.circle.fill")
+                        .font(.title)
+                }
+                .padding([.top, .horizontal])
+            }
+            .padding()
             suggestions
             wardrobeButton
                 .padding([.horizontal, .bottom])
