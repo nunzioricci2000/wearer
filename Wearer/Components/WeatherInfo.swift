@@ -79,7 +79,7 @@ private struct WeatherInfoPreview: View {
                 let coordinate = try? await LocationHandler.shared.getLocation()
                     .coordinate
                 let coords = coordinate ?? .init(latitude: 50, longitude: 14)
-                response = try? await OpenMeteo.shared.foreground(latitude: coords.latitude, longitude: coords.longitude)
+                response = try? await OpenMeteo.shared.forecast(latitude: coords.latitude, longitude: coords.longitude)
             }
         }
     }
