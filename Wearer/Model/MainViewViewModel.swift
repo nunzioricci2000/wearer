@@ -18,7 +18,7 @@ class MainViewViewModel: ObservableObject {
     var showAlert: Bool = false
     func refresh() async {
         do {
-            locationName = try await LocationHandler.shared.getLocationName()
+            locationName = try await LocationHandler.shared.getLocationName(of: LocationHandler.shared.getLocation())
             let coordinate = try await LocationHandler.shared.getLocation().coordinate
             let response = try await OpenMeteo.shared.forecast(latitude: coordinate.latitude, longitude: coordinate.longitude)
             let currentWeatherForeround = OMForeground.from(code: response.currentWeather.weatherCode)
