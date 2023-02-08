@@ -145,6 +145,7 @@ extension MainView {
                         .cornerRadius(22)
                 }
             }
+            .padding(.horizontal, 40)
         }
         else {
             Grid(horizontalSpacing: 18, verticalSpacing: 18) {
